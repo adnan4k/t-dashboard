@@ -5,7 +5,7 @@
         <ul class="navbar-nav">
             <li class="nav-item pb-2">
                 <a class="nav-link {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}"
-                    href="{{ route('dashboard') }}">
+                   wire:navigate href="{{ route('dashboard') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1"
@@ -84,31 +84,18 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'billing' ? 'active' : '' }}"
-                    href="{{ route('billing') }}">
+                <a class="nav-link {{ Route::currentRouteName() == 'blogs' ? 'active' : '' }}"
+                    wire:navigate href="{{ route('blogs') }}">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                            <title>credit-card</title>
-                            <g id="Basic-Elements" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <g id="Rounded-Icons" transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
-                                    fill-rule="nonzero">
-                                    <g id="Icons-with-opacity" transform="translate(1716.000000, 291.000000)">
-                                        <g id="credit-card" transform="translate(453.000000, 454.000000)">
-                                            <path class="color-background"
-                                                d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                id="Path" opacity="0.593633743"></path>
-                                            <path class="color-background"
-                                                d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z"
-                                                id="Shape"></path>
-                                        </g>
-                                    </g>
-                                </g>
-                            </g>
+                        <svg 
+                         class="{{ request()->routeIs('blogs') ? 'text-white' : 'text-dark' }}"
+                            style="width: 24px; height: 24px; {{ request()->routeIs('blogs') ? 'fill: white;' : 'fill: black;' }}"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                            <path d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144L0 368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144l-16 0 0 96 16 0c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48l0-224z" />
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Billing</span>
+                    <span class="nav-link-text ms-1">Blog</span>
                 </a>
             </li>
             <li class="nav-item">

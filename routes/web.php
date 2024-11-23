@@ -8,6 +8,8 @@ use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Billing;
+use App\Http\Livewire\Blogs\BlogComponent;
+use App\Http\Livewire\Blogs\Form as BlogsForm;
 use App\Http\Livewire\Categories\CategoryComponent;
 use App\Http\Livewire\Categories\Form as CategoriesForm;
 use App\Http\Livewire\Profile;
@@ -58,7 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-podcast',Form::class)->name(name: 'add-podcast');
     Route::get('/category',CategoryComponent::class)->name('category');
     Route::get('/add-category',CategoriesForm::class)->name('add-category');
-
+    Route::get('blogs',BlogComponent::class)->name('blogs');
+    Route::get('add-blog',BlogsForm::class)->name('add-blog');
 
 });
 
