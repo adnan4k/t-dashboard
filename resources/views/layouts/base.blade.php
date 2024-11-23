@@ -24,6 +24,8 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1" rel="stylesheet" />
     @livewireStyles
+    @bukStyles
+    <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 
@@ -49,6 +51,8 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/soft-ui-dashboard.js"></script>
     @livewireScripts
+    @bukScripts
+    
 </body>
 
 </html>

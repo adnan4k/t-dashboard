@@ -16,7 +16,8 @@ use App\Http\Livewire\Rtl;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
-
+use App\Http\Livewire\Podcast\Form;
+use App\Http\Livewire\Podcast\PodcastComponent;
 use Illuminate\Http\Request;
 
 /*
@@ -51,5 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/rtl', Rtl::class)->name('rtl');
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
+    Route::get('/podcast', PodcastComponent::class)->name('podcast');
+    Route::get('/add-podcast',Form::class)->name('add-podcast');
+
 });
 
