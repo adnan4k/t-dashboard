@@ -1,3 +1,4 @@
+import '../../vendor/masmerise/livewire-toaster/resources/js'; 
 import PerfectScrollbar from 'perfect-scrollbar';
 window.PerfectScrollbar = PerfectScrollbar;
 

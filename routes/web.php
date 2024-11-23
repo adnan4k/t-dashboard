@@ -8,6 +8,8 @@ use App\Http\Livewire\Auth\SignUp;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Billing;
+use App\Http\Livewire\Categories\CategoryComponent;
+use App\Http\Livewire\Categories\Form as CategoriesForm;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tables;
 use App\Http\Livewire\StaticSignIn;
@@ -53,7 +55,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
     Route::get('/podcast', PodcastComponent::class)->name('podcast');
-    Route::get('/add-podcast',Form::class)->name('add-podcast');
+    Route::get('/add-podcast',Form::class)->name(name: 'add-podcast');
+    Route::get('/category',CategoryComponent::class)->name('category');
+    Route::get('/add-category',CategoriesForm::class)->name('add-category');
+
 
 });
 

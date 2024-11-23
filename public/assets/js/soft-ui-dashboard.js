@@ -2062,9 +2062,11 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+/* harmony import */ var _vendor_masmerise_livewire_toaster_resources_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../vendor/masmerise/livewire-toaster/resources/js */ "./vendor/masmerise/livewire-toaster/resources/js/index.js");
+/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
 
-window.PerfectScrollbar = perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"];
+
+window.PerfectScrollbar = perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"];
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
@@ -2551,6 +2553,308 @@ function sidenavTypeOnResize() {
       el.classList.remove('disabled');
     });
   }
+}
+
+/***/ }),
+
+/***/ "./vendor/masmerise/livewire-toaster/resources/js/config.js":
+/*!******************************************************************!*\
+  !*** ./vendor/masmerise/livewire-toaster/resources/js/config.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Config": () => (/* binding */ Config)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Alignment = /*#__PURE__*/function () {
+  function Alignment(value) {
+    _classCallCheck(this, Alignment);
+
+    this.value = value;
+  }
+
+  _createClass(Alignment, [{
+    key: "isTop",
+    value: function isTop() {
+      return this.value === Alignment.Top;
+    }
+  }]);
+
+  return Alignment;
+}();
+
+_defineProperty(Alignment, "Top", 'top');
+
+var Config = /*#__PURE__*/function () {
+  function Config(alignment, duration) {
+    _classCallCheck(this, Config);
+
+    this.alignment = new Alignment(alignment);
+    this.duration = duration;
+  }
+
+  _createClass(Config, null, [{
+    key: "fromJson",
+    value: function fromJson(data) {
+      return new Config(data.alignment, data.duration);
+    }
+  }]);
+
+  return Config;
+}();
+
+/***/ }),
+
+/***/ "./vendor/masmerise/livewire-toaster/resources/js/hub.js":
+/*!***************************************************************!*\
+  !*** ./vendor/masmerise/livewire-toaster/resources/js/hub.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Hub": () => (/* binding */ Hub)
+/* harmony export */ });
+/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./vendor/masmerise/livewire-toaster/resources/js/config.js");
+/* harmony import */ var _toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toast */ "./vendor/masmerise/livewire-toaster/resources/js/toast.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+function Hub(Alpine) {
+  Alpine.data('toasterHub', function (initialToasts, config) {
+    config = _config__WEBPACK_IMPORTED_MODULE_0__.Config.fromJson(config);
+    return {
+      _toasts: [],
+
+      get toasts() {
+        var _this = this;
+
+        var toasts = this._toasts.filter(function (t) {
+          return !t.trashed;
+        });
+
+        if (this._toasts.length && !toasts.length) {
+          this.$nextTick(function () {
+            _this._toasts = [];
+          });
+        }
+
+        return toasts;
+      },
+
+      init: function init() {
+        var _this2 = this;
+
+        document.addEventListener('toaster:received', function (event) {
+          _this2.show(_objectSpread({
+            duration: config.duration
+          }, event.detail));
+        });
+        initialToasts.forEach(function (toast) {
+          return _this2.show(toast);
+        });
+      },
+      show: function show(toast) {
+        toast = Alpine.reactive(_toast__WEBPACK_IMPORTED_MODULE_1__.Toast.fromJson(toast));
+        toast.runAfterDuration(function (toast) {
+          return toast.dispose();
+        });
+
+        if (config.alignment.isTop()) {
+          this._toasts.unshift(toast);
+        } else {
+          this._toasts.push(toast);
+        }
+      }
+    };
+  });
+}
+
+/***/ }),
+
+/***/ "./vendor/masmerise/livewire-toaster/resources/js/index.js":
+/*!*****************************************************************!*\
+  !*** ./vendor/masmerise/livewire-toaster/resources/js/index.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _hub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./hub */ "./vendor/masmerise/livewire-toaster/resources/js/hub.js");
+/* harmony import */ var _toaster__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toaster */ "./vendor/masmerise/livewire-toaster/resources/js/toaster.js");
+
+
+window.Toaster = _toaster__WEBPACK_IMPORTED_MODULE_1__;
+document.addEventListener('alpine:init', function () {
+  window.Alpine.plugin(_hub__WEBPACK_IMPORTED_MODULE_0__.Hub);
+});
+
+/***/ }),
+
+/***/ "./vendor/masmerise/livewire-toaster/resources/js/toast.js":
+/*!*****************************************************************!*\
+  !*** ./vendor/masmerise/livewire-toaster/resources/js/toast.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Toast": () => (/* binding */ Toast)
+/* harmony export */ });
+/* harmony import */ var _uuid41__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./uuid41 */ "./vendor/masmerise/livewire-toaster/resources/js/uuid41.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+
+var Toast = /*#__PURE__*/function () {
+  function Toast(duration, message, type) {
+    _classCallCheck(this, Toast);
+
+    this.$el = null;
+    this.id = (0,_uuid41__WEBPACK_IMPORTED_MODULE_0__.uuid41)();
+    this.isVisible = false;
+    this.duration = duration;
+    this.message = message;
+    this.timeout = null;
+    this.trashed = false;
+    this.type = type;
+  }
+
+  _createClass(Toast, [{
+    key: "dispose",
+    value: function dispose() {
+      var _this = this;
+
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+
+      this.isVisible = false;
+
+      if (this.$el) {
+        this.$el.addEventListener('transitioncancel', function () {
+          _this.trashed = true;
+        });
+        this.$el.addEventListener('transitionend', function () {
+          _this.trashed = true;
+        });
+      }
+    }
+  }, {
+    key: "runAfterDuration",
+    value: function runAfterDuration(callback) {
+      var _this2 = this;
+
+      this.timeout = setTimeout(function () {
+        return callback(_this2);
+      }, this.duration);
+    }
+  }, {
+    key: "select",
+    value: function select(config) {
+      return config[this.type];
+    }
+  }, {
+    key: "show",
+    value: function show($el) {
+      this.$el = $el;
+      this.isVisible = true;
+    }
+  }], [{
+    key: "fromJson",
+    value: function fromJson(data) {
+      return new Toast(data.duration, data.message, data.type);
+    }
+  }]);
+
+  return Toast;
+}();
+
+/***/ }),
+
+/***/ "./vendor/masmerise/livewire-toaster/resources/js/toaster.js":
+/*!*******************************************************************!*\
+  !*** ./vendor/masmerise/livewire-toaster/resources/js/toaster.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "error": () => (/* binding */ error),
+/* harmony export */   "info": () => (/* binding */ info),
+/* harmony export */   "success": () => (/* binding */ success),
+/* harmony export */   "warning": () => (/* binding */ warning)
+/* harmony export */ });
+var event = function event(message, type) {
+  document.dispatchEvent(new CustomEvent('toaster:received', {
+    detail: {
+      message: message,
+      type: type
+    }
+  }));
+};
+
+var error = function error(message) {
+  return event(message, 'error');
+};
+
+var info = function info(message) {
+  return event(message, 'info');
+};
+
+var success = function success(message) {
+  return event(message, 'success');
+};
+
+var warning = function warning(message) {
+  return event(message, 'warning');
+};
+
+
+
+/***/ }),
+
+/***/ "./vendor/masmerise/livewire-toaster/resources/js/uuid41.js":
+/*!******************************************************************!*\
+  !*** ./vendor/masmerise/livewire-toaster/resources/js/uuid41.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "uuid41": () => (/* binding */ uuid41)
+/* harmony export */ });
+function uuid41() {
+  var d = '';
+
+  while (d.length < 32) {
+    d += Math.random().toString(16).substring(2);
+  }
+
+  var vr = (Number.parseInt(d.substring(16, 1), 16) & 0x3 | 0x8).toString(16);
+  return "".concat(d.substring(0, 8), "-").concat(d.substring(8, 4), "-4").concat(d.substring(13, 3), "-").concat(vr).concat(d.substring(17, 3), "-").concat(d.substring(20, 12));
 }
 
 /***/ }),

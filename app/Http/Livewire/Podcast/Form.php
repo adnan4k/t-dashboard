@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Podcast;
 
 use App\Models\Podcast;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 
 class Form extends Component
 {
@@ -37,7 +38,7 @@ class Form extends Component
         $podcast->episode = $this->episode;
         $podcast->save();
         $this->reset();
-        toastr()->success('Created Successfully');
+        Toaster::success('Successfull!'); // 👈
         return redirect()->route('podcast');
     }
     public function render()

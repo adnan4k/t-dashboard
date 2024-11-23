@@ -14,6 +14,8 @@
         Hakim Dashboard
     </title>
     <!-- Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
@@ -51,7 +53,7 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/soft-ui-dashboard.js"></script>
     @livewireScripts
-    @bukScripts
+    <x-toaster-hub /> <!-- 👈 -->
     
 </body>
 

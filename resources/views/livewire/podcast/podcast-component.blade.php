@@ -8,7 +8,7 @@
                         <div>
                             <h5 class="mb-0">All Podcasts</h5>
                         </div>
-                        <a  wire:navigate href="/add-podcast" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Podcast</a>
+                        <a wire:navigate href="/add-podcast" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Podcast</a>
                     </div>
                 </div>
                 <div>
@@ -32,9 +32,9 @@
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Episode
                                     </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Description
-                                    </th>
+                                    </th> -->
 
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Creation Date
@@ -52,7 +52,13 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-xl me-3">
+                                            <iframe
+                                                className="w-full h-10 mb-4"
+                                                src="https://www.youtube.com/embed/{{ $podcast->video_id }}"
+                                                frameBorder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                                title={title}></iframe>
                                         </div>
                                     </td>
                                     <td class="text-center">
@@ -61,9 +67,11 @@
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{$podcast->episode}}</p>
                                     </td>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$podcast->description}}</p>
-                                    </td>
+                                    <!-- <td class="text-center">
+                                        <p class="text-xs font-bold mb-0 max-w-[10rem] truncate" title="{{$podcast->description}}">
+                                            {{$podcast->description}}
+                                        </p>
+                                    </td> -->
 
                                     <td class="text-center">
                                         <span class="text-secondary text-xs font-weight-bold">{{$podcast->created_at->format('y-m-d')}}</span>
@@ -73,8 +81,18 @@
                                             data-bs-original-title="Edit user">
                                             <i class="fas fa-user-edit text-secondary"></i>
                                         </a>
+                                        <button>
+
+                                        </button>
                                         <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            <svg
+                                                class="text-red-500 w-8 h-8"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                viewBox="0 0 448 512"
+                                                fill="currentColor">
+                                                <path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                            </svg>
+
                                         </span>
                                     </td>
                                 </tr>
