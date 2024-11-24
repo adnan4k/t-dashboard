@@ -10,6 +10,8 @@ use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Billing;
 use App\Http\Livewire\Blogs\BlogComponent;
 use App\Http\Livewire\Blogs\Form as BlogsForm;
+use App\Http\Livewire\Boiography\BiographyComponent;
+use App\Http\Livewire\Boiography\Form as BoiographyForm;
 use App\Http\Livewire\Categories\CategoryComponent;
 use App\Http\Livewire\Categories\Form as CategoriesForm;
 use App\Http\Livewire\Profile;
@@ -22,6 +24,8 @@ use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
 use App\Http\Livewire\Podcast\Form;
 use App\Http\Livewire\Podcast\PodcastComponent;
+use App\Http\Livewire\Services\Form as ServicesForm;
+use App\Http\Livewire\Services\ServiceComponent;
 use Illuminate\Http\Request;
 
 /*
@@ -62,6 +66,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-category',CategoriesForm::class)->name('add-category');
     Route::get('blogs',BlogComponent::class)->name('blogs');
     Route::get('add-blog',BlogsForm::class)->name('add-blog');
+    Route::get('services',ServiceComponent::class)->name('services');
+    Route::get('add-service',ServicesForm::class)->name('add-service');
+    Route::get('biography',BiographyComponent::class)->name('biography');
+    Route::get('add-biography',BoiographyForm::class)->name('add-biography');
 
 });
 
