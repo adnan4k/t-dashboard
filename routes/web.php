@@ -22,6 +22,10 @@ use App\Http\Livewire\Rtl;
 
 use App\Http\Livewire\LaravelExamples\UserProfile;
 use App\Http\Livewire\LaravelExamples\UserManagement;
+use App\Http\Livewire\Opportunity\Scholarship\Form as ScholarshipForm;
+use App\Http\Livewire\Opportunity\Scholarship\SholarshipComponent;
+use App\Http\Livewire\Opportunity\Vacancy\Form as VacancyForm;
+use App\Http\Livewire\Opportunity\Vacancy\VacancyComponent;
 use App\Http\Livewire\Podcast\Form;
 use App\Http\Livewire\Podcast\PodcastComponent;
 use App\Http\Livewire\Services\Form as ServicesForm;
@@ -70,6 +74,10 @@ Route::middleware('auth')->group(function () {
     Route::get('add-service',ServicesForm::class)->name('add-service');
     Route::get('biography',BiographyComponent::class)->name('biography');
     Route::get('add-biography',BoiographyForm::class)->name('add-biography');
+    Route::get('/opportunity/add-vacancy',VacancyForm::class)->name('opportunity.add-vacancy');
+    Route::get('vacancies',VacancyComponent::class)->name('vacancies');
+    Route::get('scholarships',SholarshipComponent::class)->name('scholarships');
+    Route::get('add-sholarship',ScholarshipForm::class)->name('add-sholarship');
 
 });
 
