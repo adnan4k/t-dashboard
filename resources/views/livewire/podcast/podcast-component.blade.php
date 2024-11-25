@@ -1,4 +1,7 @@
-<div class="main-content">
+<div
+    class="main-content">
+ <livewire:podcast.form/>
+
     <div class="row">
         <div class="col-12">
 
@@ -8,7 +11,13 @@
                         <div>
                             <h5 class="mb-0">All Podcasts</h5>
                         </div>
-                        <a wire:navigate href="/add-podcast" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Podcast</a>
+                        <button
+                            @click="$dispatch('podcastModal')"
+                            class="btn bg-gradient-primary btn-sm mb-0"
+                            type="button">
+                            +&nbsp; New Podcast
+                        </button>
+
                     </div>
                 </div>
                 <div>
@@ -44,6 +53,12 @@
                                     </th>
                                 </tr>
                             </thead>
+
+
+
+
+
+
                             <tbody>
                                 @foreach ($podcasts as $num => $podcast )
                                 <tr>

@@ -8,8 +8,9 @@ use Livewire\Component;
 class PodcastComponent extends Component
 {
    
+   
     public $podcasts;
-
+     
 
     public function mount(){
         $this->podcasts = Podcast::get();

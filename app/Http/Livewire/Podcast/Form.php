@@ -14,7 +14,11 @@ class Form extends Component
     public $video_id;
     public $is_edit = false;
     public $id = null;
-    
+    protected $listeners = ['podcastModal'=>'podcastModal'];
+    public $openModal = false;
+    public function podcastModal(){
+        $this->openModal = true;
+     }
     protected $rules = [
         'title' => 'required|string|max:255',
         'description' => 'required|string',
@@ -39,6 +43,7 @@ class Form extends Component
         $podcast->save();
         $this->reset();
         Toaster::success('Successfull!'); // 👈
+        $this->openModal = true;
         return redirect()->route('podcast');
     }
     public function render()
