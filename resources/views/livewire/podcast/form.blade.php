@@ -3,8 +3,8 @@
     class="flex justify-center px-8">
 
     <div
-    x-cloak
-    x-show="openModal" id="default-modal" tabindex="-1" aria-hidden="true"
+        x-cloak
+        x-show="openModal" id="default-modal" tabindex="-1" aria-hidden="true"
         class="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50 overflow-y-auto">
         <div class="relative p-4 w-full max-w-2xl max-h-full">
             <form class="relative bg-white rounded-lg shadow dark:bg-gray-700" wire:submit.prevent="save">
@@ -67,6 +67,7 @@
                         <div>
                             <label class="text-gray-600 dark:text-gray-400">Description</label>
                             <textarea
+                                id="description-editor"
                                 class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
                                 wire:model="description"></textarea>
                             <div>
@@ -91,4 +92,10 @@
             </form>
         </div>
     </div>
+    <script>
+        console.log('hella')
+        var simplemde = new SimpleMDE({
+            element: document.getElementById("description-editor")
+        });
+    </script>
 </div>

@@ -11,7 +11,7 @@ class PodcastComponent extends Component
    
     public $podcasts;
      
-
+      protected $listeners = ['itemDeleted'=>'mount'];
     public function mount(){
         $this->podcasts = Podcast::get();
     }
