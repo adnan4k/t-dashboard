@@ -42,7 +42,8 @@ class Form extends Component
         $podcast->episode = $this->episode;
         $podcast->save();
         $this->reset();
-        Toaster::success('Successfull!'); // 👈
+        $message = $this->is_edit ? "Edited Successfully!" : "Created Successfully!";
+        Toaster::success($message); // 👈
         $this->openModal = true;
         return redirect()->route('podcast');
     }

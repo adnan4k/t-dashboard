@@ -26,6 +26,7 @@ use App\Http\Livewire\Opportunity\Scholarship\Form as ScholarshipForm;
 use App\Http\Livewire\Opportunity\Scholarship\SholarshipComponent;
 use App\Http\Livewire\Opportunity\Vacancy\Form as VacancyForm;
 use App\Http\Livewire\Opportunity\Vacancy\VacancyComponent;
+use App\Http\Livewire\Podcast\Detial;
 use App\Http\Livewire\Podcast\Form;
 use App\Http\Livewire\Podcast\PodcastComponent;
 use App\Http\Livewire\Services\Form as ServicesForm;
@@ -65,6 +66,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/laravel-user-profile', UserProfile::class)->name('user-profile');
     Route::get('/laravel-user-management', UserManagement::class)->name('user-management');
     Route::get('/podcast', PodcastComponent::class)->name('podcast');
+    Route::get('/podcast-detail/{podcast}',Detial::class)->name('podcast.detail');
     Route::get('/add-podcast',Form::class)->name(name: 'add-podcast');
     Route::get('/category',CategoryComponent::class)->name('category');
     Route::get('/add-category',CategoriesForm::class)->name('add-category');
@@ -78,6 +80,7 @@ Route::middleware('auth')->group(function () {
     Route::get('vacancies',VacancyComponent::class)->name('vacancies');
     Route::get('scholarships',SholarshipComponent::class)->name('scholarships');
     Route::get('add-sholarship',ScholarshipForm::class)->name('add-sholarship');
+
 
 });
 

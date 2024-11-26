@@ -2,7 +2,7 @@
     class="main-content">
     <livewire:podcast.form />
     <livewire:components.delete-modal />
-    <livewire:components.toast-notifications />
+    <livewire:podcast.detial/>
 
     <div class="row">
         <div class="col-12">
@@ -88,11 +88,16 @@
                                         <span class="text-secondary text-xs font-weight-bold">{{$podcast->created_at->format('y-m-d')}}</span>
                                     </td>
                                     <td class="text-center">
-                                        <button>
+                                        <button
+                                        wire:click="$dispatch('openDetailModal', { podcast: {{ $podcast->id }} })" 
+                                        >
                                             <i class="fa-solid fa-eye text-green-300"></i>
 
                                         </button>
-                                        <button class="">
+                                        <button
+                                        @click="$dispatch('podcastModal')"
+
+                                        class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button

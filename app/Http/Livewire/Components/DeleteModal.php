@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Components;
 
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 
 class DeleteModal extends Component
@@ -27,6 +28,7 @@ class DeleteModal extends Component
         if ($item) {
             $item->delete();
             $this->dispatch('itemDeleted'); // Emit an event for parent components to listen to
+            Toaster::success('Deleted Successfully');
         }
 
         $this->resetModal();
