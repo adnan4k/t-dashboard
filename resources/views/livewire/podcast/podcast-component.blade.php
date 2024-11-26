@@ -2,7 +2,7 @@
     class="main-content">
     <livewire:podcast.form />
     <livewire:components.delete-modal />
-
+    <livewire:components.toast-notifications />
 
     <div class="row">
         <div class="col-12">
