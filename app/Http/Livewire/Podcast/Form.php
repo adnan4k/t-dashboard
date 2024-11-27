@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Podcast;
 
 use App\Models\Podcast;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Masmerise\Toaster\Toaster;
 
@@ -33,7 +34,7 @@ class Form extends Component
         $podcast = '';
         if ($this->is_edit) {
             $podcast = Podcast::find($this->id);
-        } else {
+         } else {
             $podcast  = new Podcast();
         }
         $podcast->title = $this->title;
@@ -41,11 +42,24 @@ class Form extends Component
         $podcast->video_id = $this->video_id;
         $podcast->episode = $this->episode;
         $podcast->save();
-        $this->reset();
         $message = $this->is_edit ? "Edited Successfully!" : "Created Successfully!";
-        Toaster::success($message); // 👈
+        Toaster::success($message); 
         $this->openModal = true;
-        return redirect()->route('podcast');
+        $this->is_edit = false;
+        $this->reset();
+          $this->redirect('podcast',navigate:true);
+        // return redirect()->route('podcast');
+    }
+
+    #[On('edit-podcast')]
+    public function edit(Podcast $podcast){
+      $this->title = $podcast->title;
+       $this->description = $podcast->description;
+       $this->video_id = $podcast->video_id;
+       $this->episode = $podcast->episode;
+       $this->is_edit = true;
+       $this->openModal = true;
+       $this->id = $podcast->id;
     }
     public function render()
     {

@@ -95,7 +95,7 @@
 
                                         </button>
                                         <button
-                                        @click="$dispatch('podcastModal')"
+                                        @click="$dispatch('edit-podcast',{podcast:{{$podcast->id}}})"
 
                                         class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
