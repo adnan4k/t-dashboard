@@ -2062,15 +2062,16 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _vendor_masmerise_livewire_toaster_resources_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../vendor/masmerise/livewire-toaster/resources/js */ "./vendor/masmerise/livewire-toaster/resources/js/index.js");
-/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+/* harmony import */ var perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! perfect-scrollbar */ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js");
+/* harmony import */ var _vendor_masmerise_livewire_toaster_resources_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../vendor/masmerise/livewire-toaster/resources/js */ "./vendor/masmerise/livewire-toaster/resources/js/index.js");
 
-
-window.PerfectScrollbar = perfect_scrollbar__WEBPACK_IMPORTED_MODULE_1__["default"];
+window.PerfectScrollbar = perfect_scrollbar__WEBPACK_IMPORTED_MODULE_0__["default"];
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./custom */ "./resources/js/custom.js");
+
+
 
 /***/ }),
 
@@ -20084,6 +20085,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/perfect-scrollbar/dist/perfect-scrollbar.esm.js ***!
@@ -21776,6 +21790,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/assets/js/soft-ui-dashboard": 0,
+/******/ 			"css/app": 0,
 /******/ 			"assets/css/soft-ui-dashboard": 0
 /******/ 		};
 /******/ 		
@@ -21826,8 +21841,9 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/scss/soft-ui-dashboard.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/scss/soft-ui-dashboard.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","assets/css/soft-ui-dashboard"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

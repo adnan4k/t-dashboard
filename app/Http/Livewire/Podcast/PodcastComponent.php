@@ -3,21 +3,21 @@
 namespace App\Http\Livewire\Podcast;
 
 use App\Models\Podcast;
+use Livewire\Attributes\On;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class PodcastComponent extends Component
 {
-   
-   
-    public $podcasts;
-     
-      protected $listeners = ['itemDeleted'=>'mount'];
-    public function mount(){
-        $this->podcasts = Podcast::get();
-    }
-
+    use WithPagination;
     public function render()
     {
-        return view('livewire.podcast.podcast-component');
+        // Fetch paginated data
+        $podcasts = Podcast::orderBy('created_at', 'desc')->paginate(3);
+        // dd($podcasts);
+        // Pass the paginated data to the Blade view
+        return view('livewire.podcast.podcast-component', [
+            'podcasts' => $podcasts,
+        ]);
     }
 }

@@ -28,7 +28,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
     @livewireStyles
     @bukStyles
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/app.css" rel="stylesheet">
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
 </head>
 
@@ -54,7 +56,7 @@
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="assets/js/soft-ui-dashboard.js"></script>
     @livewireScripts
-    <x-toaster-hub /> <!-- 👈 -->
+    <x-toaster-hub /> 
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
 </body>

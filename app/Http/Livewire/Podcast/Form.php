@@ -44,11 +44,11 @@ class Form extends Component
         $podcast->save();
         $message = $this->is_edit ? "Edited Successfully!" : "Created Successfully!";
         Toaster::success($message); 
-        $this->openModal = true;
+        $this->openModal = false;
         $this->is_edit = false;
         $this->reset();
-          $this->redirect('podcast',navigate:true);
-        // return redirect()->route('podcast');
+        $this->dispatch('refreshTable');
+        //   $this->redirect('podcast',navigate:true);
     }
 
     #[On('edit-podcast')]

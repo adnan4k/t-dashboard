@@ -1,5 +1,4 @@
-<div
-    class="main-content">
+<div class="main-content">
     <livewire:podcast.form />
     <livewire:components.delete-modal />
     <livewire:podcast.detial/>
@@ -110,10 +109,12 @@
                                 @endforeach
                             </tbody>
                         </table>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{ $podcasts->links() }}
 
 </div>
