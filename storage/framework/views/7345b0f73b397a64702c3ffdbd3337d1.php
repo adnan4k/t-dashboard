@@ -1,0 +1,1 @@
+-s<?php /**PATH /home/faysal/Music/hakim-dashboard/resources/views/layouts/footers/auth/footer.blade.php ENDPATH**/ ?>

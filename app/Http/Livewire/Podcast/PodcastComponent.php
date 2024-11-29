@@ -10,7 +10,10 @@ use Livewire\WithPagination;
 class PodcastComponent extends Component
 {
     use WithPagination;
-    public function render()
+
+
+    #[On('refreshTable')]
+     public function render()
     {
         // Fetch paginated data
         $podcasts = Podcast::orderBy('created_at', 'desc')->paginate(3);

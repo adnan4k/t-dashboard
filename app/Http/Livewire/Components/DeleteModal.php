@@ -27,8 +27,9 @@ class DeleteModal extends Component
 
         if ($item) {
             $item->delete();
-            $this->dispatch('itemDeleted'); // Emit an event for parent components to listen to
             Toaster::success('Deleted Successfully');
+            $this->dispatch('refreshTable'); // Emit an event for parent components to listen to
+
         }
 
         $this->resetModal();

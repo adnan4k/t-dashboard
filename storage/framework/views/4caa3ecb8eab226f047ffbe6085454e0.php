@@ -1,6 +1,36 @@
 <div class="main-content">
-    <livewire:categories.form />
-    <livewire:components.delete-modal />
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('categories.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-359276540-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-359276540-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
 
     <div class="row">
         <div class="col-12">
@@ -45,43 +75,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $num =>$category )
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num =>$category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{$num +1}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($num +1); ?></p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"> {{$category->title}} </p>
+                                        <p class="text-xs font-weight-bold mb-0"> <?php echo e($category->title); ?> </p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$category->description}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($category->description); ?></p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$category->created_at->format('d-m-y')}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($category->created_at->format('d-m-y')); ?></p>
                                     </td>
                                     <td class="text-center">
                                         <button
-                                            wire:click="$dispatch('openDetailModal', { category: {{ $category->id }} })">
+                                            wire:click="$dispatch('openDetailModal', { category: <?php echo e($category->id); ?> })">
                                             <i class="fa-solid fa-eye text-green-300"></i>
 
                                         </button>
                                         <button
-                                            @click="$dispatch('edit-category',{category:{{$category->id}}})"
+                                            @click="$dispatch('edit-category',{category:<?php echo e($category->id); ?>})"
 
                                             class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $category->id }}, model: '{{ addslashes(App\Models\Category::class) }}' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($category->id); ?>, model: '<?php echo e(addslashes(App\Models\Category::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
 
                             </tbody>
                         </table>
@@ -91,4 +121,4 @@
         </div>
     </div>
 
-</div>
+</div><?php /**PATH /home/faysal/Music/hakim-dashboard/resources/views/livewire/categories/category-component.blade.php ENDPATH**/ ?>
