@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Opportunity\Scholarship;
 
+use App\Models\Category;
 use App\Models\Scholarship;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -18,46 +20,59 @@ class Form extends Component
     public $image;
     public $link;
     public $is_edit;
+    public $id = null;
+    protected $listeners = ['scholarshipModal' => 'scholarshipModal'];
+    public $openModal = false;
+    public $categories;
+    public function scholarshipModal()
+    {
+        $this->openModal = true;
+    }
     protected $rules = [
         'title' => 'required|string|max:255',
         'author' => 'required|string|max:255',
         'date' => 'required|date',
         'category' => 'required|string|max:255',
-        'comments' => 'nullable|integer|min:0',
-        'image' => 'required|url|max:2048', // URL of the image
+        'image' => 'required|max:2048', // URL of the image
         'link' => 'required|url|max:2048',
     ];
-    
+    public function mount()
+    {
+        $this->categories = Category::all();
+    }
     public function save()
     {
+        dd($this->all());
         $this->validate();
-    
+
         $scholarship = $this->is_edit ? Scholarship::findOrFail($this->id) : new Scholarship();
-    
+
         $scholarship->title = $this->title;
         $scholarship->author = $this->author;
         $scholarship->date = $this->date;
         $scholarship->category_id = $this->category_id;
-        $scholarship->comments = $this->comments;
-    
-        if ($this->image) {
+
+        if ($this->image instanceof UploadedFile) {
             if ($this->is_edit && $scholarship->image) {
-                Storage::disk('public')->delete($scholarship->image);
+                // Delete the old image if editing
+                Storage::delete($scholarship->image);
             }
-    
+
+            // Store the new image
             $path = $this->image->store('scholarships', 'public');
             $scholarship->image = $path;
+        } elseif ($this->is_edit) {
+            $scholarship->image = $this->image;
         }
-    
         $scholarship->link = $this->link;
-    
+
         $scholarship->save();
-    
+
         $this->reset();
         // toastr()->success($this->is_edit ? 'Scholarship updated successfully!' : 'Scholarship created successfully!');
         return redirect()->route('scholarships');
     }
-    
+
     public function render()
     {
         return view('livewire.opportunity.scholarship.form');

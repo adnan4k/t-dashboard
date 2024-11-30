@@ -81,7 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::get('vacancies',VacancyComponent::class)->name('vacancies');
     Route::get('scholarships',SholarshipComponent::class)->name('scholarships');
     Route::get('add-sholarship',ScholarshipForm::class)->name('add-sholarship');
-    Route::get('vacancy/detail/{vacancy}',Detail::class)->name('vacancy.detail');
+    Route::get('detail/{vacancy}',Detail::class)->name('detail');
 
 
 });

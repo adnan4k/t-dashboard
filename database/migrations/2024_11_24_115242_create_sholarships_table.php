@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('author');
             $table->date('date');
             $table->string('category');
-            $table->integer('comments')->default(0);
             $table->string('image');
             $table->string('link');
             $table->timestamps();

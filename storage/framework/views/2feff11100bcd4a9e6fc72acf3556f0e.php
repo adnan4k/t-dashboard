@@ -1,6 +1,36 @@
 <div class="main-content">
-    <livewire:opportunity.vacancy.form />
-    <livewire:components.delete-modal />
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('opportunity.vacancy.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3526632673-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3526632673-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
     <div class="row">
         <div class="col-12">
 
@@ -50,44 +80,44 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $vacancies as $vacancy )
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $vacancies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $vacancy): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{$vacancy->id}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($vacancy->id); ?></p>
                                     </td>
 
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$vacancy->title}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($vacancy->title); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$vacancy->jobType}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($vacancy->jobType); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$vacancy->qualifications}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($vacancy->qualifications); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{$vacancy->deadline}}</span>
+                                        <span class="text-secondary text-xs font-weight-bold"><?php echo e($vacancy->deadline); ?></span>
                                     </td>
                                     <td class="text-center">
                                         <a
-                                            href="{{route('detail',$vacancy->id)}}">
+                                            href="<?php echo e(route('detail',$vacancy->id)); ?>">
                                             <i class="fa-solid fa-eye text-green-300"></i>
 
                                         </a>
                                         <button
-                                            @click="$dispatch('edit-vacancy',{vacancy:{{$vacancy->id}}})"
+                                            @click="$dispatch('edit-vacancy',{vacancy:<?php echo e($vacancy->id); ?>})"
 
                                             class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $vacancy->id }}, model: '{{ addslashes(App\Models\Vacancy::class) }}' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($vacancy->id); ?>, model: '<?php echo e(addslashes(App\Models\Vacancy::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
                         </table>
                     </div>
@@ -96,4 +126,4 @@
         </div>
     </div>
 
-</div>
+</div><?php /**PATH /home/faysal/Music/hakim-dashboard/resources/views/livewire/opportunity/vacancy/vacancy-component.blade.php ENDPATH**/ ?>
