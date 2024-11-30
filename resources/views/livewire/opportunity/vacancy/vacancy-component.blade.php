@@ -1,4 +1,6 @@
 <div class="main-content">
+<livewire:opportunity.vacancy.form/>
+<livewire:components.delete-modal />
     <div class="row">
         <div class="col-12">
 
@@ -8,7 +10,10 @@
                         <div>
                             <h5 class="mb-0">All Vacancies</h5>
                         </div>
-                        <a wire:navigate href="/opportunity/add-vacancy" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Vacancy</a>
+                        <button
+                        @click="$dispatch('vacancyModal')"
+                         class="btn bg-gradient-primary btn-sm mb-0" 
+                         type="button">+&nbsp; New Vacancy</>
                     </div>
                 </div>
                 <div>

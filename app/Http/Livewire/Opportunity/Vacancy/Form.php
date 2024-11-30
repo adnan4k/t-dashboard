@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Opportunity\Vacancy;
 use App\Models\Vacancy;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Masmerise\Toaster\Toaster;
 
 class Form extends Component
 {
@@ -22,6 +23,13 @@ class Form extends Component
     public $email;
     public $phone;
     public $is_edit;
+    public $id = null;
+    protected $listeners = ['vacancyModal' => 'vacancyModal'];
+    public $openModal = false;
+    public function vacancyModal()
+    {
+        $this->openModal = true;
+    }
     protected $rules = [
         'title' => 'required|string|max:255',
         'description' => 'required|string',
@@ -38,30 +46,33 @@ class Form extends Component
     ];
 
     public function save()
-{
-    $this->validate();
+    {
+        $this->validate();
 
-    $vacancy = $this->is_edit ? Vacancy::findOrFail($this->id) : new Vacancy();
+        $vacancy = $this->is_edit ? Vacancy::findOrFail($this->id) : new Vacancy();
 
-    $vacancy->title = $this->title;
-    $vacancy->description = $this->description;
-    $vacancy->experience = $this->experience;
-    $vacancy->deadline = $this->deadline;
-    $vacancy->location = $this->location;
-    $vacancy->jobType = $this->jobType;
-    $vacancy->qualifications = $this->qualifications;
-    $vacancy->keyResponsibilities = $this->keyResponsibilities;
-    $vacancy->languages = $this->languages;
-    $vacancy->startDate = $this->startDate;
-    $vacancy->email = $this->email;
-    $vacancy->phone = $this->phone;
+        $vacancy->title = $this->title;
+        $vacancy->description = $this->description;
+        $vacancy->experience = $this->experience;
+        $vacancy->deadline = $this->deadline;
+        $vacancy->location = $this->location;
+        $vacancy->jobType = $this->jobType;
+        $vacancy->qualifications = $this->qualifications;
+        $vacancy->keyResponsibilities = $this->keyResponsibilities;
+        $vacancy->languages = $this->languages;
+        $vacancy->startDate = $this->startDate;
+        $vacancy->email = $this->email;
+        $vacancy->phone = $this->phone;
 
-    $vacancy->save();
+        $vacancy->save();
 
-    $this->reset();
-    // toastr()->success($this->is_edit ? 'Vacancy updated successfully!' : 'Vacancy created successfully!');
-    return redirect()->route('vacancies');
-}
+        $message = $this->is_edit ? "Edited Successfully!" : "Created Successfully!";
+        Toaster::success($message);
+        $this->openModal = false;
+        $this->is_edit = false;
+        $this->reset();
+        $this->dispatch('refreshTable');
+    }
 
 
     public function render()

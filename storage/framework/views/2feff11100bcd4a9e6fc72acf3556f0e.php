@@ -1,4 +1,36 @@
 <div class="main-content">
+<?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('opportunity.vacancy.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3526632673-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+<?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3526632673-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
     <div class="row">
         <div class="col-12">
 
@@ -8,7 +40,10 @@
                         <div>
                             <h5 class="mb-0">All Vacancies</h5>
                         </div>
-                        <a wire:navigate href="/opportunity/add-vacancy" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Vacancy</a>
+                        <button
+                        @click="$dispatch('vacancyModal')"
+                         class="btn bg-gradient-primary btn-sm mb-0" 
+                         type="button">+&nbsp; New Vacancy</>
                     </div>
                 </div>
                 <div>
