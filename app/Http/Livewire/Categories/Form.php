@@ -13,7 +13,6 @@ class Form extends Component
     public $description;
     public $is_edit;
     public $id;
-    public $isOpen = false;
     protected $listeners = ['categoryModal'=>'categoryModal'];
     public $openModal = false;
     public function categoryModal(){

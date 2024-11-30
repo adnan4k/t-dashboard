@@ -4,9 +4,12 @@ namespace App\Http\Livewire\Blogs;
 
 use App\Models\Blog;
 use App\Models\Category;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Masmerise\Toaster\Toaster;
 
 class Form extends Component
 {
@@ -18,6 +21,14 @@ class Form extends Component
     public $category_id;
     public $is_edit;
     public $categories;
+    protected $listeners = ['blogModal' => 'blogModal'];
+    public $openModal = false;
+    public $id;
+
+    public function blogModal()
+    {
+        $this->openModal = true;
+    }
     protected $rules = [
         'title' => 'required|string|max:255',
         'content' => 'required|string',
@@ -26,14 +37,14 @@ class Form extends Component
         'category_id' => 'required',
 
     ];
+    #[On('refreshTable')]
     public function mount()
     {
         $this->categories = Category::get();
+        // dd($this->categories);
     }
     public function save()
     {
-        // dd('here is');
-
         $this->validate();
         $blogs = $this->is_edit ? Blog::find($this->id) : new Blog();
 
@@ -41,19 +52,40 @@ class Form extends Component
         $blogs->content = $this->content;
         $blogs->category_id  = $this->category_id;
         $blogs->author = $this->author;
-        if ($this->image) {
+        if ($this->image instanceof UploadedFile) {
             if ($this->is_edit && $blogs->image) {
+                // Delete the old image if editing
                 Storage::delete($blogs->image);
             }
-
-            $path = $this->image->store('blogs', 'public'); // Save in the 'storage/app/public/blogs' directory
+    
+            // Store the new image
+            $path = $this->image->store('blogs', 'public');
             $blogs->image = $path;
+        } elseif ($this->is_edit) {
+            $blogs->image = $this->image;
         }
 
         $blogs->save();
+        $message = $this->is_edit ? "Edited Successfully!" : "Created Successfully!";
+
+        Toaster::success($message);
+        $this->openModal = false;
+        $this->is_edit = false;
         $this->reset();
-        // toastr()->success('Created Successfully');
-        return redirect()->route('blogs');
+        $this->dispatch('refreshTable');
+    }
+    #[On('edit-blog')]
+    public function edit(Blog $blog)
+    {
+        $this->openModal = true;
+
+        $this->title  = $blog->title;
+        $this->content = $blog->content;
+        $this->category_id = $blog->category_id;
+        $this->author = $blog->author;
+        $this->is_edit = true;
+        $this->image = $blog->image;
+        $this->id = $blog->id;
     }
 
     public function render()
