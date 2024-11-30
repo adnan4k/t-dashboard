@@ -11,7 +11,7 @@
                 <div class="flex flex-wrap border shadow rounded-lg p-3 dark:bg-gray-600">
                     <div class="flex items-center justify-between p-1 md:p-5 border-b rounded-t dark:border-gray-600">
                         <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                            Biography Detail
+                            Podcast Detail
                         </h3>
                         <button
                             @click="openModal = false"
@@ -31,27 +31,27 @@
                                 <div class="grid ">
                                     <div class="rounded overflow-hidden shadow-lg">
                                         <div class="relative">
-                                            @if($biography && $biography->image)
-                                                <div>
-                                                    <img
-                                                        class="w-full h-64"
-                                                        src="{{ asset($biography->image) }}"
-                                                        allowFullScreen />
-                                                </div>
-                                                <div class="absolute inset-0 bg-gray-900 opacity-25 hover:opacity-50 transition"></div>
-                                                <div class="absolute bottom-0 left-0 bg-indigo-600 text-white px-4 py-2 text-sm">
-                                                    Position {{ $biography->position ?? 'Not specified' }}
-                                                </div>
-                                            @else
-                                                <div class="text-center text-gray-500">No image available</div>
-                                            @endif
+                                            <div>
+                                                <iframe
+                                                    class="w-full h-64"
+                                                    src="https://www.youtube.com/embed/{{ $podcast->video_id }}"
+                                                    frameBorder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowFullScreen
+                                                    title={title}></iframe>
+                                            </div>
+                                            <div class="absolute inset-0 bg-gray-900 opacity-25 hover:opacity-50 transition"></div>
+                                            <div class="absolute bottom-0 left-0 bg-indigo-600 text-white px-4 py-2 text-sm">
+                                                Episode {{$podcast->episode}}
+                                            </div>
+
                                         </div>
                                         <div class="p-4">
                                             <a href="#" class="font-semibold text-lg text-gray-900 dark:text-gray-200 hover:text-indigo-600 transition">
-                                                {{ $biography->name ?? 'No name available' }}
+                                                {{$podcast->title}}
                                             </a>
                                             <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
-                                                {{ $biography->detail ?? 'No details available' }}
+                                                {{$podcast->description}}
                                             </p>
                                         </div>
                                         <div class="p-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
@@ -60,6 +60,9 @@
                                     c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128
                                     c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"></path>
                                             </svg>
+                                            <span>Created at {{ \Carbon\Carbon::parse($podcast->created_at)->format('Y-m-d') }}
+
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

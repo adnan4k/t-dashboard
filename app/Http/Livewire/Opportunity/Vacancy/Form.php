@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Opportunity\Vacancy;
 
 use App\Models\Vacancy;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Masmerise\Toaster\Toaster;
@@ -47,6 +48,7 @@ class Form extends Component
 
     public function save()
     {
+        // dd($this->all());
         $this->validate();
 
         $vacancy = $this->is_edit ? Vacancy::findOrFail($this->id) : new Vacancy();
@@ -72,6 +74,26 @@ class Form extends Component
         $this->is_edit = false;
         $this->reset();
         $this->dispatch('refreshTable');
+    }
+    #[On('edit-vacancy')]
+    public function edit(Vacancy $vacancy)
+    {
+        $this->title = $vacancy->title;
+        $this->description = $vacancy->description;
+        $this->experience = $vacancy->experience;
+        $this->deadline = $vacancy->deadline;
+        $this->location = $vacancy->location;
+        $this->jobType = $vacancy->jobType;
+        $this->qualifications = $vacancy->qualifications;
+        $this->keyResponsibilities = $vacancy->keyResponsibilities;
+        $this->languages = $vacancy->languages;
+        $this->startDate = $vacancy->startDate;
+        $this->email = $vacancy->email;
+        $this->phone = $vacancy->phone;
+
+        $this->is_edit = true;
+        $this->openModal = true;
+        $this->id = $vacancy->id;
     }
 
 

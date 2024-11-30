@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Vacancy extends Model
 {
     //
+    protected $casts = [
+        'startDate' => 'datetime',
+        'deadline' => 'datetime',
+
+    ];
+    
 }

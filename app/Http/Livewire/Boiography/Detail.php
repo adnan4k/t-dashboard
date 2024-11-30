@@ -9,16 +9,14 @@ class Detail extends Component
 {
     public $biography;
     public $openModal = false;
-    protected $listeners = ['openDetailModal' => 'mount'];
+    protected $listeners = ['openVacancyDetailModal' => 'openDetailModal'];
     public function openDetailModal(Biography $biography)
     {
-        dd($biography);
+
         $this->$biography = $biography;
+        dd($this->biography);
+
         $this->openModal = true;
-    }
-    public function mount(Biography $biography)
-    {
-        $this->$biography = $biography;
     }
     public function render()
     {

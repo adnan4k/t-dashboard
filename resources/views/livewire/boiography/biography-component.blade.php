@@ -47,7 +47,7 @@
                                 @foreach ( $biographies as $biography )
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">2</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$biography->id}}</p>
                                     </td>
                                     <td>
                                         <div>
@@ -64,7 +64,7 @@
 
                                     <td class="text-center">
                                         <button
-                                            wire:click="$dispatch('openDetailModal', { biography: {{ $biography->id }} })">
+                                            wire:click="$dispatch('openVacancyDetailModal', { biography: {{ $biography->id }} })">
                                             <i class="fa-solid fa-eye text-green-300"></i>
 
                                         </button>

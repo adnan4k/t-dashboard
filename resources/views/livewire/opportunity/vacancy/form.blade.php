@@ -34,18 +34,21 @@
                             <div>
                                 <label class="text-gray-600 dark:text-gray-400">Email</label>
                                 <input
+                                    placeholder="email"
                                     wire:model="email"
                                     class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
-                                    type="text">
+                                    type="email">
                                 @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
                             <!-- Experience -->
                             <div>
                                 <label class="text-gray-600 dark:text-gray-400">Phone</label>
                                 <input
+                                    placeholder="phone"
+
                                     wire:model="phone"
                                     class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
-                                    type="text">
+                                    type="phone">
                                 @error('phone') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
                         </div>
@@ -91,6 +94,28 @@
                                 @error('deadline') <span class="text-red-500">{{ $message }}</span> @enderror
                             </div>
 
+                            <div>
+                                <label class="text-gray-600 dark:text-gray-400">start Date</label>
+                                <input
+                                    wire:model="startDate"
+                                    class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                    type="date">
+                                @error('startDate') <span class="text-red-500">{{ $message }}</span> @enderror
+                            </div>
+
+
+                        </div>
+
+                        <div class="flex justify-between">
+                            <!-- Title -->
+                            <div class="mr-10">
+                                <label class="text-gray-600 dark:text-gray-400">Languages</label>
+                                <input
+                                    wire:model="languages"
+                                    class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                    type="text">
+                                @error('languages') <span class="text-red-500">{{ $message }}</span> @enderror
+                            </div>
                             <!-- Location -->
                             <div>
                                 <label class="text-gray-600 dark:text-gray-400">Location</label>
@@ -102,25 +127,14 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-between">
-                            <!-- Title -->
-                            <div class="mr-3">
-                                <label class="text-gray-600 dark:text-gray-400">Languages</label>
-                                <input
-                                    wire:model="languages"
-                                    class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
-                                    type="text">
-                                @error('languages') <span class="text-red-500">{{ $message }}</span> @enderror
-                            </div>
-                            <!-- Experience -->
-                            <div class="ml-3">
-                                <label class="text-gray-600 dark:text-gray-400">Responsibilities</label>
-                                <input
-                                    wire:model="KeyResponsibilities"
-                                    class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
-                                    type="text">
-                                @error('KeyResponsibilities') <span class="text-red-500">{{ $message }}</span> @enderror
-                            </div>
+                        <!-- Experience -->
+                        <div class="ml-10">
+                            <label class="text-gray-600 dark:text-gray-400">Responsibilities</label>
+                            <input
+                                wire:model="keyResponsibilities"
+                                class="w-full py-2 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                type="text">
+                            @error('keyResponsibilities') <span class="text-red-500">{{ $message }}</span> @enderror
                         </div>
 
                         <div class="flex justify-between">
