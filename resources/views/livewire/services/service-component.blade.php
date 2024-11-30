@@ -1,4 +1,6 @@
 <div class="main-content">
+    <livewire:services.form />
+    <livewire:components.delete-modal />
     <div class="row">
         <div class="col-12">
 
@@ -8,7 +10,10 @@
                         <div>
                             <h5 class="mb-0">All Services</h5>
                         </div>
-                        <a wire:navigate href="/add-service" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Service</a>
+                        <a
+                            @click="$dispatch('serviceModal')"
+                            class="btn bg-gradient-primary btn-sm mb-0"
+                            type="button">+&nbsp; New Service</a>
                     </div>
                 </div>
                 <div>
@@ -35,7 +40,7 @@
                                     </th>
 
 
-                                 
+
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
                                     </th>
@@ -59,15 +64,24 @@
                                         <p class="text-xs font-weight-bold mb-0">{{$service->description}}</p>
                                     </td>
 
-                                 
+
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
-                                        </a>
-                                        <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                        </span>
+                                        <button
+                                            wire:click="$dispatch('openDetailModal', { service: {{ $service->id }} })">
+                                            <i class="fa-solid fa-eye text-green-300"></i>
+
+                                        </button>
+                                        <button
+                                            @click="$dispatch('edit-service',{service:{{$service->id}}})"
+
+                                            class="">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                        <button
+                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $service->id }}, model: '{{ addslashes(App\Models\Service::class) }}' })">
+                                            <i class="fa-solid fa-trash text-red-400"></i>
+                                        </button>
+
                                     </td>
                                 </tr>
                                 @endforeach

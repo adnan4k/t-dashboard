@@ -13,7 +13,6 @@ class Detial extends Component
     public function openDetailModal(Podcast $podcast)
     {
         $this->podcast = $podcast;
-            // dd($this->podcast);
         $this->openModal = true;
     }
     public function mount(Podcast $podcast)
