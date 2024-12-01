@@ -15,12 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('image');
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
             $table->string('author')->nullable();
             $table->longText('content');
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null'); // !! null olmalı
-
         });
     }
 

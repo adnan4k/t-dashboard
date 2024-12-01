@@ -101,7 +101,7 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                         <div class="max-w-48 px-4">
                             <label for="category_id" class="block mb-2 text-sm font-medium text-gray-600 w-full">Category</label>
                             <select
-                                wire:model.live="category_id"
+                                wire:model="category_id"
                                 id="category_id"
                                 class="h-12 border border-gray-300 text-gray-600 text-base rounded-lg block w-full py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 <option value="" selected>Select a Category</option>

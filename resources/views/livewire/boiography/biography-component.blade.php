@@ -1,7 +1,6 @@
 <div class="main-content">
     <livewire:boiography.form />
     <livewire:components.delete-modal />
-    <livewire:boiography.detail />
     <div class="row">
         <div class="col-12">
 

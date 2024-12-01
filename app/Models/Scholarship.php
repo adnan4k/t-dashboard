@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scholarship extends Model
 {
+
+    protected $casts = [
+        'date' => 'date',
+
+    ];
     //
     public function category()
     {

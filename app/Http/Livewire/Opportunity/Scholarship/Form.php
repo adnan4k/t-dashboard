@@ -6,8 +6,10 @@ use App\Models\Category;
 use App\Models\Scholarship;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Masmerise\Toaster\Toaster;
 
 class Form extends Component
 {
@@ -23,7 +25,8 @@ class Form extends Component
     public $id = null;
     protected $listeners = ['scholarshipModal' => 'scholarshipModal'];
     public $openModal = false;
-    public $categories;
+    public $categories = [];
+    public $category_id;
     public function scholarshipModal()
     {
         $this->openModal = true;
@@ -32,7 +35,7 @@ class Form extends Component
         'title' => 'required|string|max:255',
         'author' => 'required|string|max:255',
         'date' => 'required|date',
-        'category' => 'required|string|max:255',
+        'category_id' => 'required|max:255',
         'image' => 'required|max:2048', // URL of the image
         'link' => 'required|url|max:2048',
     ];
@@ -42,7 +45,6 @@ class Form extends Component
     }
     public function save()
     {
-        dd($this->all());
         $this->validate();
 
         $scholarship = $this->is_edit ? Scholarship::findOrFail($this->id) : new Scholarship();
@@ -67,10 +69,27 @@ class Form extends Component
         $scholarship->link = $this->link;
 
         $scholarship->save();
-
+        $message = $this->is_edit ? "Edited Successfully!" : "Created Successfully!";
+        Toaster::success($message);
+        $this->openModal = false;
+        $this->is_edit = false;
         $this->reset();
-        // toastr()->success($this->is_edit ? 'Scholarship updated successfully!' : 'Scholarship created successfully!');
-        return redirect()->route('scholarships');
+        $this->dispatch('refreshTable');
+    }
+    #[On('edit-scholarship')]
+    public function edit(Scholarship $scholarship)
+    {
+        $this->title = $scholarship->title;
+        $this->author = $scholarship->author;
+        $this->date = $scholarship->date;
+        $this->category_id = $scholarship->category_id;
+        $this->link = $scholarship->link;
+        $this->image = $scholarship->image;
+
+        $this->is_edit = true;
+        $this->openModal = true;
+        $this->id = $scholarship->id;
+        $this->dispatch('refreshTable');
     }
 
     public function render()
