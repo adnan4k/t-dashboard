@@ -11,7 +11,8 @@ class BlogComponent extends Component
     public $blogs;
     #[On('refreshTable')]
     public function mount(){
-        $this->blogs = Blog::with('categories')->get();
+        $this->blogs = Blog::with('category')->get();
+        // dd($this->blogs);
     }
     public function render()
     {

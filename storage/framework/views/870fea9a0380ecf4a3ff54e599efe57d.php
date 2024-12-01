@@ -96,11 +96,7 @@ if (isset($__slots)) unset($__slots);
 
 
                                     <td class="text-center">
-                                        <button
-                                            wire:click="$dispatch('openDetailModal', { service: <?php echo e($service->id); ?> })">
-                                            <i class="fa-solid fa-eye text-green-300"></i>
-
-                                        </button>
+                                       
                                         <button
                                             @click="$dispatch('edit-service',{service:<?php echo e($service->id); ?>})"
 

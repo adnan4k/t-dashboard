@@ -40,7 +40,7 @@
                                         <p class="text-xs font-weight-bold mb-0">{{ $blog->title }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $blog->first()->categories ?? '' }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $blog->first()->category->title ?? '' }}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{ $blog->author }}</p>
@@ -65,9 +65,9 @@
                                 </tr>
 
                                 <!-- Collapsible Description -->
-                                <tr x-cloak x-show="openRow === {{ $blog->id }}" class="bg-gray-100">
+                                <tr x-cloak x-show="openRow === {{ $blog->id }}" class="overflow-hidden w-xl bg-gray-100">
                                     <td colspan="6" class="p-4">
-                                        <p class="text-gray-500 break-words whitespace-normal">
+                                        <p class="text-gray-500 overflow-hidden w-10 break-words whitespace-normal">
                                             {{ $blog->content ?? 'No description available for this blog.' }}
                                         </p>
                                     </td>

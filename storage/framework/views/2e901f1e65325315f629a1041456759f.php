@@ -82,7 +82,7 @@ if (isset($__slots)) unset($__slots);
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($scholarship->author); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($scholarship->date); ?></p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($scholarship->date->format('Y-m-d')); ?></p>
                                     </td>
                                     <td class="text-center align-middle">
                                         <div class="flex justify-center items-center">

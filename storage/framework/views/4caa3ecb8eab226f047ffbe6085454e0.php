@@ -93,11 +93,7 @@ if (isset($__slots)) unset($__slots);
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($category->created_at->format('d-m-y')); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <button
-                                            wire:click="$dispatch('openDetailModal', { category: <?php echo e($category->id); ?> })">
-                                            <i class="fa-solid fa-eye text-green-300"></i>
-
-                                        </button>
+                                       
                                         <button
                                             @click="$dispatch('edit-category',{category:<?php echo e($category->id); ?>})"
 

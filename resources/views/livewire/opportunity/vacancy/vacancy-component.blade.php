@@ -66,7 +66,7 @@
                                         <p class="text-xs font-weight-bold mb-0">{{$vacancy->qualifications}}</p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold">{{$vacancy->deadline}}</span>
+                                        <span class="text-secondary text-xs font-weight-bold">{{$vacancy->deadline->format('Y-m-d')}}</span>
                                     </td>
                                     <td class="text-center">
                                         <a

@@ -96,7 +96,7 @@ if (isset($__slots)) unset($__slots);
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($vacancy->qualifications); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"><?php echo e($vacancy->deadline); ?></span>
+                                        <span class="text-secondary text-xs font-weight-bold"><?php echo e($vacancy->deadline->format('Y-m-d')); ?></span>
                                     </td>
                                     <td class="text-center">
                                         <a

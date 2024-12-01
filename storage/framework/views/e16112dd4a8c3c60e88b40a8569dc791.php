@@ -130,7 +130,7 @@ if (isset($__slots)) unset($__slots);
                                     </td> -->
 
                                     <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"><?php echo e($podcast->created_at->format('y-m-d')); ?></span>
+                                        <span class="text-secondary text-xs font-weight-bold"><?php echo e($podcast->created_at->format('Y-m-d')); ?></span>
                                     </td>
                                     <td class="text-center">
                                         <button

@@ -70,7 +70,7 @@ if (isset($__slots)) unset($__slots);
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->title); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->first()->categories ?? ''); ?></p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->first()->category->title ?? ''); ?></p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->author); ?></p>
@@ -95,9 +95,9 @@ if (isset($__slots)) unset($__slots);
                                 </tr>
 
                                 <!-- Collapsible Description -->
-                                <tr x-cloak x-show="openRow === <?php echo e($blog->id); ?>" class="bg-gray-100">
+                                <tr x-cloak x-show="openRow === <?php echo e($blog->id); ?>" class="overflow-hidden w-xl bg-gray-100">
                                     <td colspan="6" class="p-4">
-                                        <p class="text-gray-500 break-words whitespace-normal">
+                                        <p class="text-gray-500 overflow-hidden w-10 break-words whitespace-normal">
                                             <?php echo e($blog->content ?? 'No description available for this blog.'); ?>
 
                                         </p>

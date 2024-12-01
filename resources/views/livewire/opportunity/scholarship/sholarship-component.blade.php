@@ -52,7 +52,7 @@
                                         <p class="text-xs font-weight-bold mb-0">{{ $scholarship->author }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $scholarship->date }}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{ $scholarship->date->format('Y-m-d') }}</p>
                                     </td>
                                     <td class="text-center align-middle">
                                         <div class="flex justify-center items-center">
