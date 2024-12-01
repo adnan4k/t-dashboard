@@ -49,7 +49,7 @@
                                         <div class="p-4">
                                             <a href="#" class="font-semibold text-lg text-gray-900 dark:text-gray-200 hover:text-indigo-600 transition">
                                                 {{$biography->title}}
-                                            </a>
+                                            </a>`
                                             <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
                                                 {{$biography->description}}
                                             </p>
