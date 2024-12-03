@@ -22,11 +22,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::prefix('api')->group(function () {
 
     Route::get('podcasts', [PodcastController::class, 'index']); // Fetch all podcasts
     Route::get('latest-podcasts', [PodcastController::class, 'latestPodcasts']); // Fetch all podcasts
-    Route::get('services', [ServiceController::class, 'index'])->name('services');
+    Route::get('/services', [ServiceController::class, 'index'])->name('services');
     Route::get('/articles', [GeneralController::class, 'articles'])->name('articles');
     Route::get('blogs', [GeneralController::class, 'blogs'])->name('blogs');
     Route::get('vacancy', [OpportunityController::class, 'vacancy'])->name('vacancy');
@@ -36,4 +35,3 @@ Route::prefix('api')->group(function () {
     Route::post('partnership', [ContactController::class, 'partnership']); 
 
 
-});

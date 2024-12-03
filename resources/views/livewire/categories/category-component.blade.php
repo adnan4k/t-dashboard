@@ -60,7 +60,7 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$category->created_at->format('d-m-y')}}</p>
+                                        <p class="text-xs font-weight-bold mb-0">{{$category->created_at->format('Y-m-d')}}</p>
                                     </td>
                                     <td class="text-center">
                                        
