@@ -15,6 +15,7 @@ use App\Http\Livewire\Boiography\Form as BoiographyForm;
 use App\Http\Livewire\Categories\CategoryComponent;
 use App\Http\Livewire\Categories\Form as CategoriesForm;
 use App\Http\Livewire\Contact\ContactComponent;
+use App\Http\Livewire\Contact\PartnershipComponent;
 use App\Http\Livewire\Profile;
 use App\Http\Livewire\Tables;
 use App\Http\Livewire\StaticSignIn;
@@ -84,6 +85,8 @@ Route::middleware('auth')->group(function () {
     Route::get('add-sholarship',ScholarshipForm::class)->name('add-sholarship');
     Route::get('detail/{vacancy}',Detail::class)->name('detail');
     Route::get('contact',ContactComponent::class)->name('contact');
+    Route::get('partnership',PartnershipComponent::class)->name('partnership');
+
 
 
 });

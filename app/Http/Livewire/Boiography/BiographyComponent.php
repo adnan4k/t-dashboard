@@ -8,7 +8,13 @@ use Livewire\Component;
 
 class BiographyComponent extends Component
 {
+    public $openModal = false;
+    protected $listeners = ['openModal'=>'openDetailModal'];
     public $biographies;
+    public function openDetailModal(){
+        $this->openModal = true;
+    }
+
     #[On('refreshTable')]
     public function mount(){
         $this->biographies =  Biography::latest()->get();

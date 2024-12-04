@@ -14,7 +14,13 @@ class ContactController extends Controller
             'email' => 'required|email|max:255',
             'message' => 'required|string',
         ]);
-        $contact = Contact::create($validated);
+        $contact = new Contact();
+        $contact->name  = $request->name;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+        $contact->type = 'contact';
+        $contact->save();
+
 
         return response()->json([
             'success' => true,
@@ -33,11 +39,13 @@ class ContactController extends Controller
 
         ]);
         $partnership =  new Contact();
-        $partnership->link = $request->name;
+        $partnership->link = $request->link;
         $partnership->email = $request->email;
         $partnership->company_name = $request->company_name;
         $partnership->message = $request->message;
         $partnership->phone = $request->phone;
+        $partnership->type = 'partnership';
+
         $partnership->save();
 
         return response()->json([

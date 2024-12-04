@@ -1,7 +1,52 @@
 <div class="main-content">
-    <livewire:boiography.form />
-    <livewire:boiography.detail/>
-    <livewire:components.delete-modal />
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('boiography.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3972823651-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('boiography.detail', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3972823651-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-3972823651-2', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
     <div class="row">
         <div class="col-12">
 
@@ -9,12 +54,12 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Biography</h5>
+                            <h5 class="mb-0">All Contacts</h5>
                         </div>
-                        <a
+                        <!-- <a
                             @click="$dispatch('bioModal')"
                             class="btn bg-gradient-primary btn-sm mb-0"
-                            type="button">+&nbsp; New Biography</a>
+                            type="button">+&nbsp; New Biography</a> -->
                     </div>
                 </div>
                 <div>
@@ -30,13 +75,13 @@
                                         ID
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Image
+                                        Email
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Name
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Position
+                                        Message
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
@@ -44,43 +89,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $biographies as $biography )
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{$biography->id}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->id); ?></p>
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="{{asset('storage/'.$biography->image)}}" class="avatar avatar-sm me-3">
+                                            <img src="<?php echo e(asset('storage/'.$contact->email)); ?>" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$biography->name}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->name); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$biography->position}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->message); ?></p>
                                     </td>
 
 
                                     <td class="text-center">
                                         <button
-                                            wire:click="$dispatch('openVacancyDetailModal', { biography: {{ $biography->id }} })">
+                                            wire:click="$dispatch('openVacancyDetailModal', { conta$contact: <?php echo e($contact->id); ?> })">
                                             <i class="fa-solid fa-eye text-green-300"></i>
 
                                         </button>
                                         <button
-                                            @click="$dispatch('edit-biography',{biography:{{$biography->id}}})"
+                                            @click="$dispatch('edit-conta$contact',{conta$contact:<?php echo e($contact->id); ?>})"
                                             class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $biography->id }}, model: '{{ addslashes(App\Models\Biography::class) }}' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($contact->id); ?>, model: '<?php echo e(addslashes(App\Models\Contact::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
                         </table>
                     </div>
@@ -89,4 +134,4 @@
         </div>
     </div>
 
-</div>
+</div><?php /**PATH /home/faysal/Music/hakim-dashboard/resources/views/livewire/contact/contact-component.blade.php ENDPATH**/ ?>

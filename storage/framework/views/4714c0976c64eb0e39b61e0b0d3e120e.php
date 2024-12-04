@@ -1,7 +1,52 @@
 <div class="main-content">
-    <livewire:boiography.form />
-    <livewire:boiography.detail/>
-    <livewire:components.delete-modal />
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('boiography.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-4079699196-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('boiography.detail', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-4079699196-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-4079699196-2', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
     <div class="row">
         <div class="col-12">
 
@@ -44,43 +89,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $biographies as $biography )
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $biographies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biography): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{$biography->id}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($biography->id); ?></p>
                                     </td>
                                     <td>
                                         <div>
-                                            <img src="{{asset('storage/'.$biography->image)}}" class="avatar avatar-sm me-3">
+                                            <img src="<?php echo e(asset('storage/'.$biography->image)); ?>" class="avatar avatar-sm me-3">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$biography->name}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($biography->name); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$biography->position}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($biography->position); ?></p>
                                     </td>
 
 
                                     <td class="text-center">
                                         <button
-                                            wire:click="$dispatch('openVacancyDetailModal', { biography: {{ $biography->id }} })">
+                                            wire:click="$dispatch('openVacancyDetailModal', { biography: <?php echo e($biography->id); ?> })">
                                             <i class="fa-solid fa-eye text-green-300"></i>
 
                                         </button>
                                         <button
-                                            @click="$dispatch('edit-biography',{biography:{{$biography->id}}})"
+                                            @click="$dispatch('edit-biography',{biography:<?php echo e($biography->id); ?>})"
                                             class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $biography->id }}, model: '{{ addslashes(App\Models\Biography::class) }}' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($biography->id); ?>, model: '<?php echo e(addslashes(App\Models\Biography::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
                         </table>
                     </div>
@@ -89,4 +134,4 @@
         </div>
     </div>
 
-</div>
+</div><?php /**PATH /home/faysal/Music/hakim-dashboard/resources/views/livewire/boiography/biography-component.blade.php ENDPATH**/ ?>

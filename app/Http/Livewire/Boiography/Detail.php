@@ -13,10 +13,12 @@ class Detail extends Component
     public function openDetailModal(Biography $biography)
     {
 
-        $this->$biography = $biography;
-        dd($this->biography);
-
+        $this->biography = $biography;
         $this->openModal = true;
+    }
+    public function mount(Biography $biography)
+    {
+        $this->$biography = $biography;
     }
     public function render()
     {

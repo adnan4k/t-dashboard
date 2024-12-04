@@ -1,5 +1,5 @@
 <div
-    x-data="{ openModal: @entangle('openModal') }"
+    x-data="{ openModal: <?php if ((object) ('openModal') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('openModal'->value()); ?>')<?php echo e('openModal'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('openModal'); ?>')<?php endif; ?> }"
     class="flex justify-center px-8">
 
     <div
@@ -34,22 +34,25 @@
                                             <div>
                                                 <img
                                                     class="w-full h-64"
-                                                    src="{{ $biography && $biography->image ? asset('storage/' . $biography->image) : '' }}"
+                                                    src="<?php echo e($biography && $biography->image ? asset('storage/' . $biography->image) : ''); ?>"
                                                     frameBorder="0"
                                                     title={title}/>
                                             </div>
                                             <div class="absolute inset-0 bg-gray-900 opacity-25 hover:opacity-50 transition"></div>
                                             <div class="absolute bottom-0 left-0 bg-indigo-600 text-white px-4 py-2 text-sm">
-                                                 {{$biography ? $biography->position : ""}}
+                                                 <?php echo e($biography ? $biography->position : ""); ?>
+
                                             </div>
 
                                         </div>
                                         <div class="p-4">
                                             <a href="#" class="font-semibold text-lg text-gray-900 dark:text-gray-200 hover:text-indigo-600 transition">
-                                                {{$biography ? $biography->name : ""}}
+                                                <?php echo e($biography ? $biography->name : ""); ?>
+
                                             </a>`
                                             <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">
-                                                {{$biography ? $biography->detail : ""}}
+                                                <?php echo e($biography ? $biography->detail : ""); ?>
+
                                             </p>
                                         </div>
                                         <div class="p-4 flex items-center text-sm text-gray-500 dark:text-gray-400">
@@ -58,7 +61,8 @@
                                     c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128
                                     c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z"></path>
                                             </svg>
-                                            <span>Created at {{ \Carbon\Carbon::parse($biography ? $biography->created_at : now())->format('Y-m-d') }}
+                                            <span>Created at <?php echo e(\Carbon\Carbon::parse($biography ? $biography->created_at : now())->format('Y-m-d')); ?>
+
 
                                             </span>
                                         </div>
@@ -82,4 +86,4 @@
         </div>
     </div>
 
-</div>
+</div><?php /**PATH /home/faysal/Music/hakim-dashboard/resources/views/livewire/boiography/detail.blade.php ENDPATH**/ ?>
