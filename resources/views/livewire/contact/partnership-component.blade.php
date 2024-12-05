@@ -84,7 +84,7 @@
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $partnership->id }}, model: '{{ addslashes(App\Models\partnership::class) }}' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $partnership->id }}, model: '{{ addslashes(App\Models\Contact::class) }}' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
