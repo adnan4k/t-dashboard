@@ -29,6 +29,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('/services', [ServiceController::class, 'index'])->name('services');
     Route::get('/articles', [GeneralController::class, 'articles'])->name('articles');
     Route::get('blogs', [GeneralController::class, 'blogs'])->name('blogs');
+    Route::get('blog-by-id',[GeneralController::class,'getBlogById']);
     Route::get('vacancy', [OpportunityController::class, 'vacancy'])->name('vacancy');
     Route::get('scholarship', [OpportunityController::class, 'scholarship'])->name('scholarship');
     Route::get('biography', [GeneralController::class, 'biography'])->name('biography');
