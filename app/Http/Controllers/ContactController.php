@@ -16,6 +16,7 @@ class ContactController extends Controller
         ]);
         $contact = new Contact();
         $contact->name  = $request->name;
+        $contact->subject = $request->subject;
         $contact->email = $request->email;
         $contact->message = $request->message;
         $contact->type = 'contact';

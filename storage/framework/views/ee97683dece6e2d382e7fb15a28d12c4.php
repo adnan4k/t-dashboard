@@ -81,6 +81,9 @@ if (isset($__slots)) unset($__slots);
                                         Name
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Subject
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Message
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -94,13 +97,14 @@ if (isset($__slots)) unset($__slots);
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->id); ?></p>
                                     </td>
-                                    <td>
-                                        <div>
-                                            <img src="<?php echo e(asset('storage/'.$contact->email)); ?>" class="avatar avatar-sm me-3">
-                                        </div>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->email); ?></p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->name); ?></p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->subject); ?></p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($contact->message); ?></p>

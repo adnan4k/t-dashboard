@@ -100,10 +100,8 @@ if (isset($__slots)) unset($__slots);
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($partnership->id); ?></p>
                                     </td>
-                                    <td>
-                                        <div>
-                                            <img src="<?php echo e(asset('storage/'.$partnership->email)); ?>" class="avatar avatar-sm me-3">
-                                        </div>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($partnership->email); ?></p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($partnership->company_name); ?></p>

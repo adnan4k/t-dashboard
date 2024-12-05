@@ -19,4 +19,8 @@ class PodcastController extends Controller
         return response()->json($podcasts);
 
     }
+    public function allPodcasts(){
+        $podcasts = Podcast::paginate(3);
+        return response()->json($podcasts);
+    }
 }

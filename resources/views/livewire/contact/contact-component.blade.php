@@ -36,6 +36,9 @@
                                         Name
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Subject
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Message
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -49,13 +52,14 @@
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0">{{$contact->id}}</p>
                                     </td>
-                                    <td>
-                                        <div>
-                                            <img src="{{asset('storage/'.$contact->email)}}" class="avatar avatar-sm me-3">
-                                        </div>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">{{$contact->email}}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{$contact->name}}</p>
+                                    </td>
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{$contact->subject}}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{$contact->message}}</p>

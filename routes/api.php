@@ -25,6 +25,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
     Route::get('podcasts', [PodcastController::class, 'index']); // Fetch all podcasts
     Route::get('latest-podcasts', [PodcastController::class, 'latestPodcasts']); // Fetch all podcasts
+    Route::get('all-podcasts', [PodcastController::class, 'allPodcasts']); // Fetch all podcasts
     Route::get('/services', [ServiceController::class, 'index'])->name('services');
     Route::get('/articles', [GeneralController::class, 'articles'])->name('articles');
     Route::get('blogs', [GeneralController::class, 'blogs'])->name('blogs');

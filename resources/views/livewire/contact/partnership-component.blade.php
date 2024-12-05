@@ -55,10 +55,8 @@
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0">{{$partnership->id}}</p>
                                     </td>
-                                    <td>
-                                        <div>
-                                            <img src="{{asset('storage/'.$partnership->email)}}" class="avatar avatar-sm me-3">
-                                        </div>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">{{$partnership->email}}</p>
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{$partnership->company_name}}</p>
