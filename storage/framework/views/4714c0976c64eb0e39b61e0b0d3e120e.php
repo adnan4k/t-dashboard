@@ -89,7 +89,7 @@ if (isset($__slots)) unset($__slots);
                                 </tr>
                             </thead>
                             <tbody>
-                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $biographies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biography): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $biographies; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $biography): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($biography->id); ?></p>
@@ -125,7 +125,7 @@ if (isset($__slots)) unset($__slots);
 
                                     </td>
                                 </tr>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>

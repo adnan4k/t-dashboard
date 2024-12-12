@@ -60,7 +60,7 @@ if (isset($__slots)) unset($__slots);
                                 </tr>
                             </thead>
                             <tbody>
-                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <!-- Row Data -->
                                     <td class="ps-4">
@@ -107,7 +107,7 @@ if (isset($__slots)) unset($__slots);
                                   </div>
 
 
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
                     </div>
