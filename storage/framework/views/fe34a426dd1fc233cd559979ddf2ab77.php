@@ -1,0 +1,1 @@
+-s<?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/layouts/footers/auth/footer.blade.php ENDPATH**/ ?>
