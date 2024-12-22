@@ -12,6 +12,7 @@ class ServiceComponent extends Component
    #[On('refreshTable')]
     public function mount(){
            $this->services = Service::get();
+        //    dd(vars: $this->services);
     }
     public function render()
     {

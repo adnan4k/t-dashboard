@@ -75,7 +75,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add-category',CategoriesForm::class)->name('add-category');
     Route::get('blogs',BlogComponent::class)->name('blogs');
     Route::get('add-blog',BlogsForm::class)->name('add-blog');
-    Route::get('services',ServiceComponent::class)->name('services');
+    Route::get('sliders',ServiceComponent::class)->name('sliders');
     Route::get('add-service',ServicesForm::class)->name('add-service');
     Route::get('biography',BiographyComponent::class)->name('biography');
     Route::get('add-biography',BoiographyForm::class)->name('add-biography');

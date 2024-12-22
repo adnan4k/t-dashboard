@@ -33,7 +33,6 @@ class Form extends Component
     ];
     public function save()
     {
-        // dd($this->title,$this->description,$this->image);
 
        $validated =  $this->validate();
         $services = $this->is_edit ? Service::find($this->id) : new Service();
@@ -46,7 +45,7 @@ class Form extends Component
                 // Delete the old image if editing
                 Storage::delete($services->image);
             }
-    
+        //  dd($this->image);
             // Store the new image
             $path = $this->image->store('services', 'public');
             $services->image = $path;

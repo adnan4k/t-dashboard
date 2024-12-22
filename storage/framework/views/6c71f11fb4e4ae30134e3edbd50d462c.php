@@ -100,21 +100,21 @@ sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 f
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <?php echo e(Route::currentRouteName() == 'services' ? 'active' : ''); ?>"
-                    wire:navigate href="<?php echo e(route('services')); ?>">
+                <a class="nav-link <?php echo e(Route::currentRouteName() == 'sliders' ? 'active' : ''); ?>"
+                    wire:navigate href="<?php echo e(route('sliders')); ?>">
                     <div
                         class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                         <svg
-                            class="<?php echo e(request()->routeIs('services') ? 'text-white' : 'text-dark'); ?>"
+                            class="<?php echo e(request()->routeIs('slider') ? 'text-white' : 'text-dark'); ?>"
                             style="width: 24px; height: 24px; <?php echo e(request()->routeIs('services') ? 'fill: white;' : 'fill: black;'); ?>"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
                             <path d="M216 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l16 0 0 33.3C119.6 157.2 32 252.4 32 368l448 0c0-115.6-87.6-210.8-200-222.7l0-33.3 16 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-40 0-40 0zM24 400c-13.3 0-24 10.7-24 24s10.7 24 24 24l464 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 400z" />
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1">Service</span>
+                    <span class="nav-link-text ms-1">Sliders</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link <?php echo e(Route::currentRouteName() == 'biography' ? 'active' : ''); ?>"
                     wire:navigate href="<?php echo e(route('biography')); ?>">
                     <div
@@ -129,8 +129,8 @@ sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 f
                     </div>
                     <span class="nav-link-text ms-1">Biography</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
                 <a class="nav-link <?php echo e(Route::currentRouteName() == 'vacancies' ? 'active' : ''); ?>"
                     wire:navigate href="<?php echo e(route('vacancies')); ?>">
                     <div
@@ -146,8 +146,8 @@ sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 f
                     </div>
                     <span class="nav-link-text ms-1">Vacancy</span>
                 </a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
                 <a class="nav-link <?php echo e(Route::currentRouteName() == 'scholarships' ? 'active' : ''); ?>"
                     wire:navigate href="<?php echo e(route('scholarships')); ?>">
                     <div
@@ -163,7 +163,7 @@ sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 f
                     </div>
                     <span class="nav-link-text ms-1">Scholarship</span>
                 </a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link <?php echo e(Route::currentRouteName() == 'contact' ? 'active' : ''); ?>"
                     wire:navigate href="<?php echo e(route('contact')); ?>">
@@ -184,7 +184,7 @@ sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 f
                 </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link <?php echo e(Route::currentRouteName() == 'partnership' ? 'active' : ''); ?>"
                     wire:navigate href="<?php echo e(route('partnership')); ?>">
                     <div
@@ -202,7 +202,7 @@ sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 f
                     </div>
                     <span class="nav-link-text ms-1">Partnership</span>
                 </a>
-            </li>
+            </li> -->
 
 
 
