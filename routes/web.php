@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Packages\PackageComponent;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Livewire\Auth\ForgotPassword;
@@ -32,8 +33,10 @@ use App\Http\Livewire\Opportunity\Vacancy\VacancyComponent;
 use App\Http\Livewire\Podcast\Detial;
 use App\Http\Livewire\Podcast\Form;
 use App\Http\Livewire\Podcast\PodcastComponent;
+use App\Http\Livewire\Sections\SectionComponent;
 use App\Http\Livewire\Services\Form as ServicesForm;
 use App\Http\Livewire\Services\ServiceComponent;
+use App\Http\Livewire\Testimony\TestimonyComponent;
 use Illuminate\Http\Request;
 
 /*
@@ -59,6 +62,10 @@ Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-passwo
 Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')->middleware('signed');
 
 Route::middleware('auth')->group(function () {
+    Route::get('packages',PackageComponent::class)->name('packages');
+    Route::get('sections',SectionComponent::class)->name('sections');
+
+    Route::get('testimonials',TestimonyComponent::class)->name('testimonials');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/billing', Billing::class)->name('billing');
     Route::get('/profile', Profile::class)->name('profile');
@@ -77,8 +84,8 @@ Route::middleware('auth')->group(function () {
     Route::get('add-blog',BlogsForm::class)->name('add-blog');
     Route::get('sliders',ServiceComponent::class)->name('sliders');
     Route::get('add-service',ServicesForm::class)->name('add-service');
-    Route::get('biography',BiographyComponent::class)->name('biography');
     Route::get('add-biography',BoiographyForm::class)->name('add-biography');
+    
     Route::get('/opportunity/add-vacancy',VacancyForm::class)->name('opportunity.add-vacancy');
     Route::get('vacancies',VacancyComponent::class)->name('vacancies');
     Route::get('scholarships',SholarshipComponent::class)->name('scholarships');
