@@ -59,7 +59,7 @@ if (isset($__slots)) unset($__slots);
                         </div>
                         <button
                             @click="$dispatch('podcastModal')"
-                            class="btn bg-gradient-primary btn-sm mb-0"
+                            class="btn bg-green-400 btn-sm mb-0"
                             type="button">
                             +&nbsp; New Podcast
                         </button>

@@ -37,25 +37,24 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
 
                         </div>
                         <div class="w-full max-w-sm min-w-[200px]">
-                        <label class="text-gray-600 dark:text-gray-400">
+                            <label class="text-gray-600 dark:text-gray-400">
                                 Type
                             </label>
                             <div class="relative">
                                 <select
-                                wire:model="type"
+                                    wire:model="type"
                                     class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
                                     <option selected>---Select Section---</option>
 
                                     <option value="about">About</option>
                                     <option value="why-choose-us">Why Choose us </option>
-                                    <option value="london">London</option>
-                                    <option value="washington">Washington</option>
+                                    <option value="destination">Destination</option>
                                 </select>
-                               
+
                             </div>
                         </div>
                         <div>
-                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['type'];
+                            <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['type'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -63,7 +62,7 @@ $message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php e
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
-                            </div>
+                        </div>
 
 
 

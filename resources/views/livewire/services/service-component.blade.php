@@ -12,7 +12,7 @@
                         </div>
                         <a
                             @click="$dispatch('serviceModal')"
-                            class="btn bg-gradient-primary btn-sm mb-0"
+                            class="btn bg-green-400 btn-sm mb-0"
                             type="button">+&nbsp; New Slider</a>
                     </div>
                 </div>

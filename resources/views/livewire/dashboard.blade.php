@@ -15,7 +15,7 @@
                 </div>
               </div>
               <div class="col-4 text-end">
-                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <div class="icon icon-shape bg-green-400 shadow text-center border-radius-md">
                   <i class="fa-solid fa-microphone"></i>
                 </div>
               </div>
@@ -38,7 +38,7 @@
                 </div>
               </div>
               <div class="col-4 text-end">
-                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <div class="icon icon-shape bg-green-400 shadow text-center border-radius-md">
                   <i class="ni ni-hat-3 text-lg opacity-10" aria-hidden="true"></i> <!-- Scholarship icon -->
                 </div>
               </div>
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="col-4 text-end">
-                <div class="icon icon-shape bg-gradient-primary shadow text-center border-radius-md">
+                <div class="icon icon-shape bg-green-400 shadow text-center border-radius-md">
                   <i class="ni ni-briefcase-24 text-lg opacity-10" aria-hidden="true"></i> <!-- Vacancies icon -->
                 </div>
               </div>
