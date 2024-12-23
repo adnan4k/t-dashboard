@@ -40,10 +40,15 @@ if (isset($__slots)) unset($__slots);
                         <div>
                             <h5 class="mb-0">All Sections</h5>
                         </div>
-                        <a
+                        <button
+                            class="bg-[#56C596] rounded-2xl hover:bg-green-600 text-white p-2 "
+                            style="background-color: green !important; color: white !important;"
                             @click="$dispatch('sectionModal')"
-                            class="btn bg-green-400 btn-sm mb-0"
-                            type="button">+&nbsp; New section</a>
+                            type="button">
+                            +&nbsp; New section
+                        </button>
+
+
                     </div>
                 </div>
                 <div>
@@ -67,9 +72,9 @@ if (isset($__slots)) unset($__slots);
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Section Type
                                     </th>
-                                    <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    <!-- <th class=" text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Content
-                                    </th>
+                                    </th> -->
 
 
 
@@ -86,7 +91,7 @@ if (isset($__slots)) unset($__slots);
                                     </td>
                                     <td>
                                         <div>
-                                        <img src="<?php echo e(asset('storage/' . $section->image)); ?>" class="h-12 w-24 me-3" alt="section Image">
+                                            <img src="<?php echo e(asset('storage/' . $section->image)); ?>" class="h-12 w-24 me-3" alt="section Image">
                                         </div>
                                     </td>
                                     <td class="">
@@ -95,13 +100,13 @@ if (isset($__slots)) unset($__slots);
                                     <td class="">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($section->type); ?></p>
                                     </td>
-                                    <td class="">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($section->content); ?></p>
-                                    </td>
+                                    <!-- <td class="">
+                                        <p class="text-xs wrap font-weight-bold mb-0"><?php echo $section->content; ?></p>
+                                    </td> -->
 
 
                                     <td class="">
-                                       
+
                                         <button
                                             @click="$dispatch('edit-section',{section:<?php echo e($section->id); ?>})"
 
@@ -109,7 +114,7 @@ if (isset($__slots)) unset($__slots);
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($section->id); ?>, model: '<?php echo e(addslashes(App\Models\section::class)); ?>' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($section->id); ?>, model: '<?php echo e(addslashes(App\Models\Section::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 

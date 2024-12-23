@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\OpportunityController;
 use App\Http\Controllers\PodcastController;
+use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+    Route::get('home-destinations', [SectionController::class, 'getHomeDestinations']);
+    Route::get('packages', [SectionController::class, 'getPackages']);
+    Route::get('home-packages', [SectionController::class, 'getHomePackages']);
+    Route::get('destinations', [SectionController::class, 'getAllDestionations']);
     Route::get('podcasts', [PodcastController::class, 'index']); // Fetch all podcasts
     Route::get('latest-podcasts', [PodcastController::class, 'latestPodcasts']); // Fetch all podcasts
     Route::get('all-podcasts', [PodcastController::class, 'allPodcasts']); // Fetch all podcasts

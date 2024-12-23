@@ -49,6 +49,7 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                                     <option value="about">About</option>
                                     <option value="why-choose-us">Why Choose us </option>
                                     <option value="destination">Destination</option>
+                                    <option value="package">Packages</option>
                                 </select>
 
                             </div>
@@ -89,9 +90,10 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             </div>
 
                         </div>
-                        <div>
+                        <div wire:ignore>
                             <label class="text-gray-600 dark:text-gray-400">Content</label>
                             <textarea
+                                id="content"
                                 class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
                                 wire:model="content"></textarea>
                             <div>
@@ -126,4 +128,22 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
             </form>
         </div>
     </div>
+        <?php
+        $__scriptKey = '4010186415-0';
+        ob_start();
+    ?>
+    <script>
+        const simplemde = new SimpleMDE({
+            element: document.getElementById("content")
+        });
+        simplemde.codemirror.on("change", function() {
+            $wire.set("content", simplemde.value());
+            // console.log(simplemde.value());
+        });
+    </script>
+        <?php
+        $__output = ob_get_clean();
+
+        \Livewire\store($this)->push('scripts', $__output, $__scriptKey)
+    ?>
 </div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/sections/form.blade.php ENDPATH**/ ?>

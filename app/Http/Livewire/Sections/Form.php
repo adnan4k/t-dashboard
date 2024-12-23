@@ -26,13 +26,12 @@ class Form extends Component
         $this->openModal = true;
     }
     protected $rules = [
-        'title' => 'required|string|max:255',
-        'content' => 'required|string',
+        'title' => 'required',
+        'content' => 'required',
         'image' => 'required',
     ];
     public function save()
     {
-
        $validated =  $this->validate();
         $sections = $this->is_edit ? Section::find($this->id) : new Section();
 
