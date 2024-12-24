@@ -1,6 +1,36 @@
 <div class="main-content">
-    <livewire:blogs.form />
-    <livewire:components.delete-modal />
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('blogs.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-1989886540-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-1989886540-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
     <div class="row">
         <div class="col-12">
             <div class="card mb-4 mx-4">
@@ -30,35 +60,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($blogs as $num => $blog)
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <!-- Row Data -->
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $num + 1 }}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($num + 1); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $blog->title }}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->title); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $blog->first()->category->title ?? '' }}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->first()->category->title ?? ''); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{ $blog->author }}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($blog->author); ?></p>
                                     </td>
                                     <td class="text-center align-middle">
                                         <div class="flex justify-center items-center">
-                                            <img src="{{ asset('storage/' . $blog->image) }}" class="w-24 h-24 mb-0" alt="Blog Image" />
+                                            <img src="<?php echo e(asset('storage/' . $blog->image)); ?>" class="w-24 h-24 mb-0" alt="Blog Image" />
                                         </div>
                                     </td>
                                     <td class="text-center">
                                         <button
-                                            @click="openRow === {{ $blog->id }} ? openRow = null : openRow = {{ $blog->id }}">
-                                            <i :class="openRow === {{ $blog->id }} ? 'fa-solid fa-minus text-red-400' : 'fa-solid fa-plus text-green-300'"></i>
+                                            @click="openRow === <?php echo e($blog->id); ?> ? openRow = null : openRow = <?php echo e($blog->id); ?>">
+                                            <i :class="openRow === <?php echo e($blog->id); ?> ? 'fa-solid fa-minus text-red-400' : 'fa-solid fa-plus text-green-300'"></i>
                                         </button>
-                                        <button @click="$dispatch('edit-blog', { blog: {{ $blog->id }} })">
+                                        <button @click="$dispatch('edit-blog', { blog: <?php echo e($blog->id); ?> })">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
-                                        <button wire:click="$dispatch('openDeleteModal', { itemId: {{ $blog->id }}, model: '{{ addslashes(App\Models\Blog::class) }}' })">
+                                        <button wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($blog->id); ?>, model: '<?php echo e(addslashes(App\Models\Blog::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
                                     </td>
@@ -66,17 +96,18 @@
                                   <div style="width: 100px;">
 
                                       <!-- Collapsible Description -->
-                                      <tr style="width: 200px;" x-cloak x-show="openRow === {{ $blog->id }}" >
+                                      <tr style="width: 200px;" x-cloak x-show="openRow === <?php echo e($blog->id); ?>" >
                                           <td class="text-center" >
                                               <p class="text-gray-500 break-words whitespace-normal">
-                                                  {{ $blog->content ?? 'No description available for this blog.' }}
+                                                  <?php echo e($blog->content ?? 'No description available for this blog.'); ?>
+
                                               </p>
                                           </td>
                                       </tr>
                                   </div>
 
 
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
                         </table>
                     </div>
@@ -84,4 +115,4 @@
             </div>
         </div>
     </div>
-</div>
+</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/blogs/blog-component.blade.php ENDPATH**/ ?>
