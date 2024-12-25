@@ -1,6 +1,36 @@
 <div class="main-content">
-    <livewire:testimony.form />
-    <livewire:components.delete-modal />
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('packages.form', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-1476430540-0', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
+    <?php
+$__split = function ($name, $params = []) {
+    return [$name, $params];
+};
+[$__name, $__params] = $__split('components.delete-modal', []);
+
+$__html = app('livewire')->mount($__name, $__params, 'lw-1476430540-1', $__slots ?? [], get_defined_vars());
+
+echo $__html;
+
+unset($__html);
+unset($__name);
+unset($__params);
+unset($__split);
+if (isset($__slots)) unset($__slots);
+?>
     <div class="row">
         <div class="col-12">
 
@@ -8,12 +38,12 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Testimonies</h5>
+                            <h5 class="mb-0">All packages</h5>
                         </div>
                         <a
-                            @click="$dispatch('testimonyModal')"
+                            @click="$dispatch('packageModal')"
                             class="btn bg-green-400 btn-sm mb-0"
-                            type="button">+&nbsp; New Testimony</a>
+                            type="button">+&nbsp; New package</a>
                     </div>
                 </div>
                 <div>
@@ -32,14 +62,12 @@
                                         Image
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Name
+                                        Title
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Position
+
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Description
                                     </th>
-                                    <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Content
-                                    </th> -->
 
 
 
@@ -49,43 +77,40 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $testimonies as $num => $testimony )
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $packages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $package): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">{{$num +1}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($num +1); ?></p>
                                     </td>
                                     <td>
                                         <div>
-                                        <img src="{{ asset('storage/' . $testimony->image) }}" class="h-12 w-24 me-3" alt="testimony Image">
+                                        <img src="<?php echo e(asset('storage/' . $package->image)); ?>" class="h-12 w-24 me-3" alt="package Image">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$testimony->name}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($package->title); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$testimony->position}}</p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($package->description); ?></p>
                                     </td>
-                                    <!-- <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">{{$testimony->content}}</p>
-                                    </td> -->
 
 
                                     <td class="text-center">
                                        
                                         <button
-                                            @click="$dispatch('edit-testimony',{testimony:{{$testimony->id}}})"
+                                            @click="$dispatch('edit-package',{package:<?php echo e($package->id); ?>})"
 
                                             class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $testimony->id }}, model: '{{ addslashes(App\Models\Testimony::class) }}' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($package->id); ?>, model: '<?php echo e(addslashes(App\Models\package::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
                                     </td>
                                 </tr>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
                         </table>
                     </div>
@@ -94,4 +119,4 @@
         </div>
     </div>
 
-</div>
+</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/packages/package-component.blade.php ENDPATH**/ ?>

@@ -23,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+   Route::get('blog-detail/{id}',[SectionController::class,'getBlogDetail']);
+   Route::get('testimonials', [SectionController::class, 'getTestimonials']);
+    Route::get('package-detail/{id}', [SectionController::class, 'getPackageDetail']);
     Route::get('home-destinations', [SectionController::class, 'getHomeDestinations']);
     Route::get('packages', [SectionController::class, 'getPackages']);
     Route::get('home-packages', [SectionController::class, 'getHomePackages']);

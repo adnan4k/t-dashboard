@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Section;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Section;
+use App\Models\Testimony;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -59,6 +61,51 @@ class SectionController extends Controller
             ->get();
         return response()->json([
             'data' => $sections,
+            'message' => 'success',
+            'status' => 200
+        ]);
+    }
+
+    public function getPackageDetail($id)
+    {
+        $section = Section::find($id);
+        if (!$section) {
+            return response()->json([
+                'data' => [],
+                'message' => 'No data found',
+                'status' => 404
+            ]);
+        }
+        return response()->json([
+            'data' => $section,
+            'message' => 'success',
+            'status' => 200
+        ]);
+    }
+
+
+    public function getTestimonials()
+    {
+        $testimonials = Testimony::orderBy('id', 'desc')
+            ->get();
+        return response()->json([
+            'data' => $testimonials,
+            'message' => 'success',
+            'status' => 200
+        ]);
+    }
+
+    public function getBlogDetail($id){
+        $blogs = Blog::find($id);
+        if (!$blogs) {
+            return response()->json([
+                'data' => [],
+                'message' => 'No data found',
+                'status' => 404
+            ]);
+        }
+        return response()->json([
+            'data' => $blogs,
             'message' => 'success',
             'status' => 200
         ]);

@@ -11,7 +11,7 @@
             class="relative p-4 w-full max-w-2xl max-h-full">
             <form class="relative bg-white rounded-lg shadow dark:bg-gray-700" wire:submit.prevent="save">
                 <div class="flex flex-wrap border shadow rounded-lg p-3 dark:bg-gray-600">
-                    <h2 class="text-xl text-gray-600 dark:text-gray-300 pb-2">Create Slider</h2>
+                    <h2 class="text-xl text-gray-600 dark:text-gray-300 pb-2">Create Section</h2>
 
                     <div class="flex flex-col gap-2 w-full border-gray-400">
 
@@ -42,6 +42,8 @@
                                     <option value="about">About</option>
                                     <option value="why-choose-us">Why Choose us </option>
                                     <option value="destination">Destination</option>
+                                    <option value="testimony">Testimony</option>
+
                                     <option value="package">Packages</option>
                                 </select>
 
