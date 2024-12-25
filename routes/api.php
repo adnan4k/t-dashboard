@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\OpportunityController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Livewire\Booking\BookingComponent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+   Route::post('book',[BookingController::class,'store']);
    Route::get('blog-detail/{id}',[SectionController::class,'getBlogDetail']);
    Route::get('testimonials', [SectionController::class, 'getTestimonials']);
     Route::get('package-detail/{id}', [SectionController::class, 'getPackageDetail']);

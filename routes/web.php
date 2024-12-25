@@ -13,6 +13,7 @@ use App\Http\Livewire\Blogs\BlogComponent;
 use App\Http\Livewire\Blogs\Form as BlogsForm;
 use App\Http\Livewire\Boiography\BiographyComponent;
 use App\Http\Livewire\Boiography\Form as BoiographyForm;
+use App\Http\Livewire\Booking\BookingComponent;
 use App\Http\Livewire\Categories\CategoryComponent;
 use App\Http\Livewire\Categories\Form as CategoriesForm;
 use App\Http\Livewire\Contact\ContactComponent;
@@ -64,6 +65,7 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 Route::middleware('auth')->group(function () {
     Route::get('packages',PackageComponent::class)->name('packages');
     Route::get('sections',SectionComponent::class)->name('sections');
+    Route::get('booking',BookingComponent::class)->name('booking');
 
     Route::get('testimonials',TestimonyComponent::class)->name('testimonials');
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
