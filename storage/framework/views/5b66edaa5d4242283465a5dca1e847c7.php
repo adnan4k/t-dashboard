@@ -11,7 +11,7 @@
             class="relative p-4 w-full max-w-2xl max-h-full">
             <form class="relative bg-white rounded-lg shadow dark:bg-gray-700" wire:submit.prevent="save">
                 <div class="flex flex-wrap border shadow rounded-lg p-3 dark:bg-gray-600">
-                    <h2 class="text-xl text-gray-600 dark:text-gray-300 pb-2">Create Package</h2>
+                    <h2 class="text-xl text-gray-600 dark:text-gray-300 pb-2">Create Slider</h2>
 
                     <div class="flex flex-col gap-2 w-full border-gray-400">
 
@@ -26,26 +26,6 @@
                                 type="text">
                             <div>
                                 <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['title'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
-                            </div>
-
-                        </div>
-                        <div>
-                            <label class="text-gray-600 dark:text-gray-400">
-                               Tour Code
-                            </label>
-                            <input
-                                wire:model="code"
-                                class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
-                                type="text">
-                            <div>
-                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['code'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -119,4 +99,4 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
             </form>
         </div>
     </div>
-</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/packages/form.blade.php ENDPATH**/ ?>
+</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/services/form.blade.php ENDPATH**/ ?>

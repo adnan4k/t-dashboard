@@ -43,19 +43,45 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             <div class="relative">
                                 <select
                                     wire:model="type"
+                                    x-data
+                                    x-on:change="$dispatch('type-changed', { value: $event.target.value })"
                                     class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
                                     <option selected>---Select Section---</option>
-
                                     <option value="about">About</option>
-                                    <option value="why-choose-us">Why Choose us </option>
+                                    <option value="why-choose-us">Why Choose Us</option>
                                     <option value="destination">Destination</option>
                                     <option value="testimony">Testimony</option>
-
                                     <option value="package">Packages</option>
                                 </select>
-
                             </div>
                         </div>
+
+                        <!-- Conditional Tour Code Field -->
+                        <div x-data="{ show: <?php if ((object) ('type') instanceof \Livewire\WireDirective) : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('type'->value()); ?>')<?php echo e('type'->hasModifier('live') ? '.live' : ''); ?><?php else : ?>window.Livewire.find('<?php echo e($__livewire->getId()); ?>').entangle('<?php echo e('type'); ?>')<?php endif; ?>.defer === 'package' }"
+                            x-on:type-changed.window="show = $event.detail.value === 'package'">
+                            <template x-if="show">
+                                <div class="mt-4">
+                                    <label class="text-gray-600 dark:text-gray-400">
+                                        Tour Code
+                                    </label>
+                                    <input
+                                        wire:model="code"
+                                        class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                        type="text">
+                                    <div>
+                                        <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['code'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
                         <div>
                             <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['type'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

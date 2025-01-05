@@ -36,19 +36,38 @@
                             <div class="relative">
                                 <select
                                     wire:model="type"
+                                    x-data
+                                    x-on:change="$dispatch('type-changed', { value: $event.target.value })"
                                     class="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded pl-3 pr-8 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md appearance-none cursor-pointer">
                                     <option selected>---Select Section---</option>
-
                                     <option value="about">About</option>
-                                    <option value="why-choose-us">Why Choose us </option>
+                                    <option value="why-choose-us">Why Choose Us</option>
                                     <option value="destination">Destination</option>
                                     <option value="testimony">Testimony</option>
-
                                     <option value="package">Packages</option>
                                 </select>
-
                             </div>
                         </div>
+
+                        <!-- Conditional Tour Code Field -->
+                        <div x-data="{ show: @entangle('type').defer === 'package' }"
+                            x-on:type-changed.window="show = $event.detail.value === 'package'">
+                            <template x-if="show">
+                                <div class="mt-4">
+                                    <label class="text-gray-600 dark:text-gray-400">
+                                        Tour Code
+                                    </label>
+                                    <input
+                                        wire:model="code"
+                                        class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                        type="text">
+                                    <div>
+                                        @error('code') <span class="text-red-500">{{ $message }}</span> @enderror
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
                         <div>
                             @error('type') <span class="text-red-500">{{ $message }}</span> @enderror
                         </div>

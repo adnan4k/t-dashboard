@@ -43,7 +43,6 @@ class SectionController extends Controller
     {
         $sections = Section::orderBy('id', 'desc')
             ->where('type', 'package')
-            ->select('id', 'title', 'content', 'image')
             ->take(3)
             ->get();
         return response()->json([
@@ -57,7 +56,6 @@ class SectionController extends Controller
     {
         $sections = Section::orderBy('id', 'desc')
             ->where('type', 'package')
-            ->select('id', 'title', 'content', 'image')
             ->get();
         return response()->json([
             'data' => $sections,

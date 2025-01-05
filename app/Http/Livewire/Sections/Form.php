@@ -15,6 +15,7 @@ class Form extends Component
     public $title;
     public $type;
     public $content;
+    public $code;
     public $image;
     public $is_edit;
     protected $listeners = ['sectionModal' => 'sectionModal'];
@@ -32,11 +33,13 @@ class Form extends Component
     ];
     public function save()
     {
+        // dd($this->all());
        $validated =  $this->validate();
         $sections = $this->is_edit ? Section::find($this->id) : new Section();
 
         $sections->title = $this->title;
         $sections->type = $this->type;
+        $sections->code = $this->code;
 
         $sections->content = $this->content;
       
@@ -71,6 +74,7 @@ class Form extends Component
         $this->type = $section->type;
         $this->content = $section->content;
         $this->is_edit = true;
+        $this->code = $section->code;
         $this->image = $section->image;
         $this->id = $section->id;
     }

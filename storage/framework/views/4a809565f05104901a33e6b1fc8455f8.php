@@ -3,9 +3,9 @@
 $__split = function ($name, $params = []) {
     return [$name, $params];
 };
-[$__name, $__params] = $__split('packages.form', []);
+[$__name, $__params] = $__split('services.form', []);
 
-$__html = app('livewire')->mount($__name, $__params, 'lw-1476430540-0', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'lw-1209157857-0', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
@@ -21,7 +21,7 @@ $__split = function ($name, $params = []) {
 };
 [$__name, $__params] = $__split('components.delete-modal', []);
 
-$__html = app('livewire')->mount($__name, $__params, 'lw-1476430540-1', $__slots ?? [], get_defined_vars());
+$__html = app('livewire')->mount($__name, $__params, 'lw-1209157857-1', $__slots ?? [], get_defined_vars());
 
 echo $__html;
 
@@ -38,12 +38,12 @@ if (isset($__slots)) unset($__slots);
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All packages</h5>
+                            <h5 class="mb-0">All Sliders</h5>
                         </div>
                         <a
-                            @click="$dispatch('packageModal')"
+                            @click="$dispatch('serviceModal')"
                             class="btn bg-green-400 btn-sm mb-0"
-                            type="button">+&nbsp; New package</a>
+                            type="button">+&nbsp; New Slider</a>
                     </div>
                 </div>
                 <div>
@@ -60,13 +60,10 @@ if (isset($__slots)) unset($__slots);
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Image
-                                        </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Title
-                                        </th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Code
-                                        </th>
+                                    </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Title
+                                    </th>
 
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Description
@@ -80,37 +77,34 @@ if (isset($__slots)) unset($__slots);
                                 </tr>
                             </thead>
                             <tbody>
-                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $packages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $package): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td class="ps-4">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($num +1); ?></p>
                                     </td>
                                     <td>
                                         <div>
-                                        <img src="<?php echo e(asset('storage/' . $package->image)); ?>" class="h-12 w-24 me-3" alt="package Image">
+                                        <img src="<?php echo e(asset('storage/' . $service->image)); ?>" class="h-12 w-24 me-3" alt="Service Image">
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($package->title); ?></p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($service->title); ?></p>
                                     </td>
                                     <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($package->code ?? "N/A"); ?></p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($package->description); ?></p>
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($service->description); ?></p>
                                     </td>
 
 
                                     <td class="text-center">
                                        
                                         <button
-                                            @click="$dispatch('edit-package',{package:<?php echo e($package->id); ?>})"
+                                            @click="$dispatch('edit-service',{service:<?php echo e($service->id); ?>})"
 
                                             class="">
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($package->id); ?>, model: '<?php echo e(addslashes(App\Models\package::class)); ?>' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($service->id); ?>, model: '<?php echo e(addslashes(App\Models\Service::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 
@@ -125,4 +119,4 @@ if (isset($__slots)) unset($__slots);
         </div>
     </div>
 
-</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/packages/package-component.blade.php ENDPATH**/ ?>
+</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/services/service-component.blade.php ENDPATH**/ ?>

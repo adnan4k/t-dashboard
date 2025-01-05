@@ -18,6 +18,7 @@ class Form extends Component
     public $description;
     public $image;
     public $is_edit;
+    public $code;
     protected $listeners = ['packageModal' => 'packageModal'];
     public $openModal = false;
     public $id;
@@ -41,6 +42,7 @@ class Form extends Component
 
         $packages->title = $this->title;
         $packages->description = $this->description;
+        $packages->code = $this->code;
       
         if ($this->image instanceof UploadedFile) {
             if ($this->is_edit && $packages->image) {
@@ -73,6 +75,7 @@ class Form extends Component
         $this->description = $package->description;
         $this->is_edit = true;
         $this->image = $package->image;
+        $this->code = $package->code;
         $this->id = $package->id;
     }
 
