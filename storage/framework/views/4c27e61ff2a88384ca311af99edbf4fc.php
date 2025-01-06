@@ -35,7 +35,10 @@
                                         People Count
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                     Place
+                                        Place
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Tour Code
                                     </th>
                                 </tr>
                             </thead>
@@ -56,11 +59,15 @@
                                     </td>
                                     <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($booking->members); ?></p>
-                                    </td> <td class="text-center">
+                                    </td>
+                                    <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0"><?php echo e($booking->place); ?></p>
                                     </td>
-                                
-                                  
+                                    <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($booking->TourCode); ?></p>
+                                    </td>
+
+
                                 </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
@@ -70,5 +77,4 @@
             </div>
         </div>
     </div>
-</div>
-<?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/booking/booking-component.blade.php ENDPATH**/ ?>
+</div><?php /**PATH /home/faysal/Desktop/apps/kasma/tour-travel-dashbaord/resources/views/livewire/booking/booking-component.blade.php ENDPATH**/ ?>

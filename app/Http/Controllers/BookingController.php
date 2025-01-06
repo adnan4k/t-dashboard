@@ -17,6 +17,7 @@ class BookingController extends Controller
         $booking->place = $request->place;
         $booking->days = $request->days;
         $booking->date = $request->date;
+        $booking->TourCode = $request->TourCode;
         $booking->time = $request->time;
         $booking->save();
         return response()->json(['message' => 'Booking created!'], 201);
