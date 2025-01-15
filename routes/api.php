@@ -46,6 +46,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('contacts', [ContactController::class, 'contact']); 
     Route::post('partnership', [ContactController::class, 'partnership']); 
     Route::post('subscribe', [ContactController::class, 'subscribe']); 
+    Route::get('destination-detail/{id}', [SectionController::class, 'getDestinationDetail']);
 
 
 

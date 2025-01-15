@@ -80,7 +80,22 @@ class SectionController extends Controller
             'status' => 200
         ]);
     }
-
+    public function getDestinationDetail($id)
+    {
+        $section = Section::find($id);
+        if (!$section) {
+            return response()->json([
+                'data' => [],
+                'message' => 'No data found',
+                'status' => 404
+            ]);
+        }
+        return response()->json([
+            'data' => $section,
+            'message' => 'success',
+            'status' => 200
+        ]);
+    }
 
     public function getTestimonials()
     {
