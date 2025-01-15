@@ -45,5 +45,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::get('biography', [GeneralController::class, 'biography'])->name('biography');
     Route::post('contacts', [ContactController::class, 'contact']); 
     Route::post('partnership', [ContactController::class, 'partnership']); 
+    Route::post('subscribe', [ContactController::class, 'subscribe']); 
+
 
 

@@ -37,6 +37,7 @@ use App\Http\Livewire\Podcast\PodcastComponent;
 use App\Http\Livewire\Sections\SectionComponent;
 use App\Http\Livewire\Services\Form as ServicesForm;
 use App\Http\Livewire\Services\ServiceComponent;
+use App\Http\Livewire\Subscription\SubscriptionController;
 use App\Http\Livewire\Testimony\TestimonyComponent;
 use Illuminate\Http\Request;
 
@@ -95,6 +96,7 @@ Route::middleware('auth')->group(function () {
     Route::get('detail/{vacancy}',Detail::class)->name('detail');
     Route::get('contact',ContactComponent::class)->name('contact');
     Route::get('partnership',PartnershipComponent::class)->name('partnership');
+    Route::get('subscription',SubscriptionController::class)->name('subscription');
 
 
 

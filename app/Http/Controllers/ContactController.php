@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\Subscription;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -54,5 +55,12 @@ class ContactController extends Controller
             'message' => 'Thank you for contacting us!',
             'data' => $partnership,
         ], 201);
+    }
+
+    public function subscribe(Request $request){
+        $subscription = new Subscription();
+        $subscription->email = $request->email;
+        $subscription->save();
+        return response()->json(200);
     }
 }
