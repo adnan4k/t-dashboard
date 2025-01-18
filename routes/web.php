@@ -34,11 +34,13 @@ use App\Http\Livewire\Opportunity\Vacancy\VacancyComponent;
 use App\Http\Livewire\Podcast\Detial;
 use App\Http\Livewire\Podcast\Form;
 use App\Http\Livewire\Podcast\PodcastComponent;
+use App\Http\Livewire\Schedule\ScheduleComponent;
 use App\Http\Livewire\Sections\SectionComponent;
 use App\Http\Livewire\Services\Form as ServicesForm;
 use App\Http\Livewire\Services\ServiceComponent;
 use App\Http\Livewire\Subscription\SubscriptionController;
 use App\Http\Livewire\Testimony\TestimonyComponent;
+use App\Http\Livewire\Tour\TourComponent;
 use Illuminate\Http\Request;
 
 /*
@@ -97,8 +99,8 @@ Route::middleware('auth')->group(function () {
     Route::get('contact',ContactComponent::class)->name('contact');
     Route::get('partnership',PartnershipComponent::class)->name('partnership');
     Route::get('subscription',SubscriptionController::class)->name('subscription');
-
-
+    Route::get('/schedule',ScheduleComponent::class)->name('schedule');
+    Route::get('tour',TourComponent::class)->name('tour');
 
 });
 
