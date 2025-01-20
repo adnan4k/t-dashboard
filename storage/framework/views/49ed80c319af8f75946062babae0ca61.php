@@ -36,7 +36,8 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             </div>
 
                         </div>
-                        <div>
+                        <div class="flex flex-row  sm:flex-row justify-content-between   ">
+                        <div class="mr-4">
                             <label class="text-gray-600 dark:text-gray-400">
                                 Duration
                             </label>
@@ -77,6 +78,95 @@ endif;
 unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             </div>
 
+                        </div>
+                        </div>
+
+                        <div class="flex flex-row lg:flex-row justify-between">
+                        <div class="mr-4">
+                            <label class="text-gray-600 dark:text-gray-400">
+                                Tour Type
+                            </label>
+                            <input
+                                wire:model="tour_type"
+                                
+                                class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                type="text">
+                            <div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['tour_type'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+
+                        </div>
+                        <div>
+                            <label class="text-gray-600 dark:text-gray-400">
+                                Group Size
+                            </label>
+                            <input
+                                wire:model="group_size"
+                                class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                type="text">
+                            <div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['group_size'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+
+                        </div>
+                        </div>
+                        <div class="flex flex-row  sm:flex-row justify-content-between   ">
+                        <div class="mr-4">
+                            <label class="text-gray-600 dark:text-gray-400">
+                                Transport
+                            </label>
+                            <input
+                                wire:model="transport"
+                                
+                                class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                type="text">
+                            <div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['transport'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+
+                        </div>
+                        <div>
+                            <label class="text-gray-600 dark:text-gray-400">
+                                Destination
+                            </label>
+                            <input
+                                value="<?php echo e($title ?? null); ?>"
+                                wire:model="destination"
+                                class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                type="text">
+                            <div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['destination'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+
+                        </div>
                         </div>
                     
 
@@ -136,6 +226,23 @@ endif;
 unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                             </div>
                         </div>
+                        <div wire:ignore>
+                            <label class="text-gray-600 dark:text-gray-400">Package Exclusions</label>
+                            <textarea
+                                id="exclusions"
+                                class="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow dark:bg-gray-600 dark:text-gray-100"
+                                wire:model="exclusions"></textarea>
+                            <div>
+                                <!--[if BLOCK]><![endif]--><?php $__errorArgs = ['exclusions'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> <span class="text-red-500"><?php echo e($message); ?></span> <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
+                            </div>
+                        </div>
 
                         <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                             <button
@@ -162,11 +269,18 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
         ob_start();
     ?>
     <script>
-        const simplemde = new SimpleMDE({
+        const inclusions = new SimpleMDE({
             element: document.getElementById("inclusions")
         });
-        simplemde.codemirror.on("change", function() {
-            $wire.set("inclusions", simplemde.value());
+        inclusions.codemirror.on("change", function() {
+            $wire.set("inclusions", inclusions.value());
+            // console.log(simplemde.value());
+        });
+        const exclusions = new SimpleMDE({
+            element: document.getElementById("exclusions")
+        });
+        exclusions.codemirror.on("change", function() {
+            $wire.set("exclusions", exclusions.value());
             // console.log(simplemde.value());
         });
     </script>

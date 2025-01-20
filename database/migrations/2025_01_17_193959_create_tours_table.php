@@ -15,7 +15,7 @@ return new class extends Migration
             Schema::create('tours', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->nullable();
-                $table->integer('duration')->nullable();
+                $table->string('duration')->nullable();
                 $table->string('tour_code')->nullable();
                 $table->text('inclusions')->nullable(); // Store inclusions as text
                 $table->text('exclusions')->nullable(); // Store exclusions as text

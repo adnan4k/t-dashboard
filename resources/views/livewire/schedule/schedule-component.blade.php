@@ -1,5 +1,5 @@
 <div class="main-content">
-    <livewire:packages.form />
+    <livewire:schedule.form />
     <livewire:components.delete-modal />
     <div class="row">
         <div class="col-12">
@@ -11,7 +11,7 @@
                             <h5 class="mb-0">All packages</h5>
                         </div>
                         <a
-                            @click="$dispatch('packageModal')"
+                            @click="$dispatch('scheduleModal')"
                             class="btn bg-green-400 btn-sm mb-0"
                             type="button">+&nbsp; New package</a>
                     </div>
@@ -29,7 +29,7 @@
                                         ID
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Image
+                                        Day number 
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Title
@@ -38,9 +38,7 @@
                                             Code
                                         </th>
 
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Description
-                                    </th>
+                
 
 
 
@@ -50,7 +48,42 @@
                                 </tr>
                             </thead>
                             <tbody>
-                             
+                                @foreach ( $schedules as $num => $schedule )
+                                <tr>
+                                    <td class="ps-4">
+                                        <p class="text-xs font-weight-bold mb-0">{{$num +1}}</p>
+                                    </td>
+                                 
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">{{$schedule->day_number}}</p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">{{$schedule->tour->name}}</p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0">{{$schedule->tour->tour_code}}</p>
+                                    </td>
+                                    <!-- <td class="">
+                                        <p class="text-xs wrap font-weight-bold mb-0">{!!$schedule->content!!}</p>
+                                    </td> -->
+
+
+                                    <td class="">
+
+                                        <button
+                                            @click="$dispatch('edit-schedule',{schedule:{{$schedule->id}}})"
+
+                                            class="">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                        <button
+                                            wire:click="$dispatch('openDeleteModal', { itemId: {{ $schedule->id }}, model: '{{ addslashes(App\Models\Schedule::class) }}' })">
+                                            <i class="fa-solid fa-trash text-red-400"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

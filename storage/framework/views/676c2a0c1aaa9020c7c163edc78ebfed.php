@@ -111,7 +111,7 @@ if (isset($__slots)) unset($__slots);
                                             <i class="fa-regular fa-pen-to-square"></i>
                                         </button>
                                         <button
-                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($tour->id); ?>, model: '<?php echo e(addslashes(App\Models\tour::class)); ?>' })">
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($tour->id); ?>, model: '<?php echo e(addslashes(App\Models\Tour::class)); ?>' })">
                                             <i class="fa-solid fa-trash text-red-400"></i>
                                         </button>
 

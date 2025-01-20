@@ -7,6 +7,7 @@ use App\Http\Controllers\OpportunityController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\Section\SectionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TourController;
 use App\Http\Livewire\Booking\BookingComponent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,10 +29,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
    Route::post('book',[BookingController::class,'store']);
    Route::get('blog-detail/{id}',[SectionController::class,'getBlogDetail']);
    Route::get('testimonials', [SectionController::class, 'getTestimonials']);
-    Route::get('package-detail/{id}', [SectionController::class, 'getPackageDetail']);
+    Route::get('package-detail/{id}', [TourController::class, 'tourById']);
     Route::get('home-destinations', [SectionController::class, 'getHomeDestinations']);
-    Route::get('packages', [SectionController::class, 'getPackages']);
-    Route::get('home-packages', [SectionController::class, 'getHomePackages']);
+    Route::get('packages', [TourController::class, 'getPackages']);
+    Route::get('home-packages', [TourController::class, 'getHomePackages']);
     Route::get('destinations', [SectionController::class, 'getAllDestionations']);
     Route::get('podcasts', [PodcastController::class, 'index']); // Fetch all podcasts
     Route::get('latest-podcasts', [PodcastController::class, 'latestPodcasts']); // Fetch all podcasts
@@ -47,6 +48,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('partnership', [ContactController::class, 'partnership']); 
     Route::post('subscribe', [ContactController::class, 'subscribe']); 
     Route::get('destination-detail/{id}', [SectionController::class, 'getDestinationDetail']);
+    // Route::get('tou-detail/{id}', [SectionController::class, 'getPackageDetail']);
 
 
 

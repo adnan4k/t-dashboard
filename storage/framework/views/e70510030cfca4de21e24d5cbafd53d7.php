@@ -3,7 +3,7 @@
 $__split = function ($name, $params = []) {
     return [$name, $params];
 };
-[$__name, $__params] = $__split('packages.form', []);
+[$__name, $__params] = $__split('schedule.form', []);
 
 $__html = app('livewire')->mount($__name, $__params, 'lw-3245357762-0', $__slots ?? [], get_defined_vars());
 
@@ -41,7 +41,7 @@ if (isset($__slots)) unset($__slots);
                             <h5 class="mb-0">All packages</h5>
                         </div>
                         <a
-                            @click="$dispatch('packageModal')"
+                            @click="$dispatch('scheduleModal')"
                             class="btn bg-green-400 btn-sm mb-0"
                             type="button">+&nbsp; New package</a>
                     </div>
@@ -59,7 +59,7 @@ if (isset($__slots)) unset($__slots);
                                         ID
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Image
+                                        Day number 
                                         </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Title
@@ -68,9 +68,7 @@ if (isset($__slots)) unset($__slots);
                                             Code
                                         </th>
 
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Description
-                                    </th>
+                
 
 
 
@@ -80,7 +78,42 @@ if (isset($__slots)) unset($__slots);
                                 </tr>
                             </thead>
                             <tbody>
-                             
+                                <!--[if BLOCK]><![endif]--><?php $__currentLoopData = $schedules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $num => $schedule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <tr>
+                                    <td class="ps-4">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($num +1); ?></p>
+                                    </td>
+                                 
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($schedule->day_number); ?></p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($schedule->tour->name); ?></p>
+                                    </td>
+                                    <td class="">
+                                        <p class="text-xs font-weight-bold mb-0"><?php echo e($schedule->tour->tour_code); ?></p>
+                                    </td>
+                                    <!-- <td class="">
+                                        <p class="text-xs wrap font-weight-bold mb-0"><?php echo $schedule->content; ?></p>
+                                    </td> -->
+
+
+                                    <td class="">
+
+                                        <button
+                                            @click="$dispatch('edit-schedule',{schedule:<?php echo e($schedule->id); ?>})"
+
+                                            class="">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </button>
+                                        <button
+                                            wire:click="$dispatch('openDeleteModal', { itemId: <?php echo e($schedule->id); ?>, model: '<?php echo e(addslashes(App\Models\Schedule::class)); ?>' })">
+                                            <i class="fa-solid fa-trash text-red-400"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><!--[if ENDBLOCK]><![endif]-->
                             </tbody>
                         </table>
                     </div>

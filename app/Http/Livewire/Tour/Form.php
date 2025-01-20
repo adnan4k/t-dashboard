@@ -19,9 +19,14 @@ class Form extends Component
     public $inclusions;
     public $exclusions;
     public $image;
+    public $group_size;
+    public $tour_type;
+    public $destination;
+    public $transport;
     protected $listeners = ['tourModal' => 'tourModal'];
     public $openModal = false;
     public $is_edit = false;
+    
     public $id;
 
     public function tourModal()
@@ -43,6 +48,11 @@ class Form extends Component
         $tours->duration = $this->duration;
 
         $tours->inclusions = $this->inclusions;
+        $tours->exclusions = $this->exclusions;
+        $tours->tour_type = $this->tour_type;
+        $tours->group_size = $this->group_size;
+        $tours->destination  = $this->destination;
+        $tours->transport = $this->transport;
       
         if ($this->image instanceof UploadedFile) {
             if ($this->is_edit && $tours->image) {
@@ -73,9 +83,14 @@ class Form extends Component
 
         $this->name  = $tour->name;
         $this->duration  = $tour->duration;
-
+        $this->group_size = $tour->group_size;
+        $this->tour_type = $tour->tour_type;
         $this->inclusions = $tour->inclusions;
+        $this->exclusions = $tour->exclusions;
         $this->tour_code = $tour->tour_code;
+        $this->transport = $tour->transport;
+        $this->destination = $tour->destination;
+
         $this->is_edit = true;
         $this->image = $tour->image;
         $this->id = $tour->id;

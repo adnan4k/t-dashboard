@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tour_id')->constrained('tours')->onDelete('cascade');
-            $table->integer('day_number');
+            $table->string('day_number');
             $table->text('description'); // Description of activities for the day
             $table->timestamps();
         });

@@ -49,7 +49,7 @@ unset($__errorArgs, $__bag); ?><!--[if ENDBLOCK]><![endif]-->
                                     <option selected>---Select Section---</option>
                                     <option value="about">About</option>
                                     <option value="why-choose-us">Why Choose Us</option>
-                                    <option value="destination">Destination</option>
+                                    <opt    ion value="destination">Destination</option>
                                     <option value="testimony">Testimony</option>
                                     <option value="package">Packages</option>
                                 </select>

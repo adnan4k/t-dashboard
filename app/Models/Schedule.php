@@ -8,6 +8,6 @@ class Schedule extends Model
 {
     //
     public function tour(){
-        $this->belongsTo(Tour::class);
+       return $this->belongsTo(Tour::class);
     }
 }
